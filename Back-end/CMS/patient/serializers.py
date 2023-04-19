@@ -6,12 +6,12 @@ from rest_framework.response import Response
 from rest_framework import serializers
 
 
-from doctor.models import Doctor
+from patient.models import Patient
 
     
-class DoctorSerializer(serializers.ModelSerializer):
+class PatientSerializer(serializers.ModelSerializer):
    
     class Meta:
-        model=Doctor
-        fields=('doctor_name','department','cost','address','image')
+        model=Patient
+        fields=('patient_name','phone_number')
         

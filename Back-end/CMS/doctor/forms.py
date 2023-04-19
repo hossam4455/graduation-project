@@ -7,4 +7,4 @@ from django import forms
 class CreatAlbum(forms.ModelForm):
     class Meta:
         model=Doctor
-        fields=['doctor_name','department','cost','address']
+        fields=['doctor_name','department','cost','address','image']

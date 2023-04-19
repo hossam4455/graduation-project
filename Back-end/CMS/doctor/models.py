@@ -6,7 +6,7 @@ class Doctor(models.Model):
     doctor_name=models.CharField(max_length=200,blank=True)
     department=models.CharField(max_length=200,blank=True)
     cost = models.FloatField(blank=True,null=True)
-  
+    image = models.ImageField(null=False,blank= True)
     address= models.CharField("Address line 1",max_length=1024,)
  
  
