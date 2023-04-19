@@ -8,6 +8,8 @@ class Doctor(models.Model):
     cost = models.FloatField(blank=True,null=True)
     image = models.ImageField(null=False,blank= True)
     address= models.CharField("Address line 1",max_length=1024,)
+    def __str__(self):
+        return self.doctor_name
  
  
     

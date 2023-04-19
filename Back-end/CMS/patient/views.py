@@ -35,7 +35,11 @@ from .models import Patient
 class PatientCreat(views.APIView):
     serializer_class = PatientSerializer
     
-  
+    def get(self, request, *args, **kwargs): 
+        doctor=Patient.objects.all()
+        data=PatientSerializer(doctor,many=True).data
+        return Response(data)
+        
         
     def post(self, request):
         serializer = PatientSerializer(data=request.data)
