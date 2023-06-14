@@ -9,40 +9,50 @@
 .rone {
     margin-top: 20px;
   }
-  
- .rone label {
+ 
+ .formone label {
     display: block;
     margin-bottom: 10px;
+    margin-left: 25%;
+    font-size: larger;
   }
   
- .rone input[type="text"],
+ .formone input[type="text"],
   input[type="email"],
   
   input[type="file"]  {
-    width: 100%;
+    width: 40%;
     padding: 8px;
     margin-bottom: 10px;
+    margin-left: 25%;
+    
+  
+
+
   }
-  .rone input[type="file"]{
+  .formone input[type="file"]{
     margin-bottom: 20px;
   }
   
- .rone button {
+ .formone button {
     background-color: #4CAF50;
     color: white;
     padding: 10px 20px;
     border: none;
     cursor: pointer;
+    margin-left: 40%;
+
   }
   
- .rone button:hover {
+ .formone button:hover {
     background-color: #45a049;
   }
-  .rone select{
+  .formone select{
    
         width: 100%;
         padding: 8px;
         margin-top: 10px;
         background-color: white;
+        
       
   }
