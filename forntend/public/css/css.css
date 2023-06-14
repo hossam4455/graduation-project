@@ -17,10 +17,14 @@
   
  .rone input[type="text"],
   input[type="email"],
-  input[type="password"] {
+  
+  input[type="file"]  {
     width: 100%;
     padding: 8px;
     margin-bottom: 10px;
+  }
+  .rone input[type="file"]{
+    margin-bottom: 20px;
   }
   
  .rone button {

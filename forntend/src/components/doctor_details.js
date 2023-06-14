@@ -78,9 +78,18 @@ import React, { Component } from "react";
 
   <label for="email">Email:</label>
   <input type="email" id="email" name="email" required/>
-  
-  <label for="specialization">Specialization:</label>
-  <input type="text" id="specialization" name="specialization" required/>
+
+  <label for="dep-select">Department:</label>
+  <select id="dep-select">
+      <option value="0">Select a Department</option>
+      <option value="1">باطنه</option>
+      <option value="2">عظام</option>
+      <option value="3">جراحه</option>
+     
+    </select>
+
+  <label for="cost">Cost:</label>
+  <input type="text" id="cost" name="cost" />
 
   <label for="city-select">City:</label>
   <select id="city-select">
@@ -95,7 +104,11 @@ import React, { Component } from "react";
  
   <label for="Address">Address</label>
   <input type="text" id="Address" name="Address" required/>
- 
+  <h2>Upload an Image</h2>
+
+
+  <input type="file" name="image" accept="image/*"/>
+<br/>
   <button type="submit">Submit</button>
 </form> 
 
