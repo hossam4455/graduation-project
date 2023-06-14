@@ -32,10 +32,9 @@ from rest_framework import status
 from rest_framework import permissions
 from rest_framework.decorators import api_view, permission_classes
 from .models import Doctor
+
 class DoctorCreat(views.APIView):
     serializer_class = DoctorSerializer
-    
-    
     def get(self, request, *args, **kwargs): 
         doctor=Doctor.objects.all()
        

@@ -11,9 +11,3 @@ class Patient(models.Model):
     appointment_time  = models.TimeField(auto_now=False, auto_now_add=False,)
     def __str__(self):
         return self.patient_name
-
-    def clean(self):
-        if self.Cost == None:pass
-        else:
-            if type(self.Cost) == float and self.Cost < 1:
-                raise ValidationError({"Cost": _('Please enter value more than zero'), })

@@ -13,3 +13,8 @@ class Doctor(models.Model):
  
  
     
+    def clean(self):
+        if self.cost == None:pass
+        else:
+            if type(self.cost) == float and self.cost < 1:
+                raise ValidationError({"Cost": _('Please enter value more than zero'), })
