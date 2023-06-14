@@ -51,7 +51,7 @@ class Search extends Component{
                 </button>
                 <div className="collapse navbar-collapse" id="navbarCollapse">
                     <div className="navbar-nav ms-auto py-0">
-                    <a href="/Home" className="nav-item nav-link active">Home</a>
+                    <a href="/" className="nav-item nav-link active">Home</a>
                         <a href="/About" className="nav-item nav-link">About</a>
                         <a href="/Service" className="nav-item nav-link">Service</a>
                         <a href="/Price" className="nav-item nav-link">Pricing</a>

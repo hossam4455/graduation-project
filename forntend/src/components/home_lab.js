@@ -16,7 +16,7 @@ class HomeLAb extends Component{
                             <li><a href="/Price">Pricing</a></li>
                             <li><a href="/HomeLab">pages</a></li>
                             <li><a href="/Contact">Contact</a></li>
-                            <li><a href="/Register">login</a></li>
+                            <li><a href="/Login">login</a></li>
                             <li><a href="/Register">signup</a></li>
                         </ul>
 

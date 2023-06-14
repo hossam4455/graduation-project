@@ -16,7 +16,7 @@ import React, { Component } from "react";
                     <li><a href="/Price">Pricing</a></li>
                     <li><a href="/Alborj">pages</a></li>
                     <li><a href="/Contact">Contact</a></li>
-                    <li><a href="/Register">login</a></li>
+                    <li><a href="/Login">login</a></li>
                     <li><a href="/Register">signup</a></li>
                 </ul>
             </nav>

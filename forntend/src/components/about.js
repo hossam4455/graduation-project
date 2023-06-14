@@ -65,7 +65,7 @@ class About extends Component{
                             </div>
                         </div>
                         <a href="/Contact" className="nav-item nav-link">Contact</a>
-                        <a href="/Register" className="nav-item nav-link">Login</a>
+                        <a href="/Login" className="nav-item nav-link">Login</a>
                         <a href="/Register" className="nav-item nav-link">Sign Up</a>
                     </div>
                 </div>

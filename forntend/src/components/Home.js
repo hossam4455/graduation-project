@@ -64,7 +64,7 @@ import React, { Component } from "react";
                             </div>
                         </div>
                         <a href="/Contact" className="nav-item nav-link">Contact</a>
-                        <a href="/Register" className="nav-item nav-link">Login</a>
+                        <a href="/Login" className="nav-item nav-link">Login</a>
                         <div className="nav-item dropdown">
                             <a href="/Register" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Signup</a>
                             <div className="dropdown-menu m-0">
@@ -176,7 +176,7 @@ import React, { Component } from "react";
                         </div>
                         <h4 className="mb-3">Operation & Surgery</h4>
                         <p className="m-0"></p>
-                        <a className="btn btn-lg btn-primary rounded-pill" href="/">
+                        <a className="btn btn-lg btn-primary rounded-pill" href="/DoctorDetails">
                             <i className="bi bi-arrow-right"></i>
                         </a>
                     </div>

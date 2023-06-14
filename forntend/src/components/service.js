@@ -51,12 +51,12 @@ import React, { Component } from "react";
                 </button>
                 <div className="collapse navbar-collapse" id="navbarCollapse">
                     <div className="navbar-nav ms-auto py-0">
-                        <a href="/Home" className="nav-item nav-link active">Home</a>
+                        <a href="/" className="nav-item nav-link active">Home</a>
                         <a href="/About" className="nav-item nav-link">About</a>
                         <a href="/Service" className="nav-item nav-link">Service</a>
                         <a href="/Price" className="nav-item nav-link">Pricing</a>
                         <div className="nav-item dropdown">
-                            <a href="/" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                            <a href="/Service" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                             <div className="dropdown-menu m-0">
                                 <a href="/Team" className="dropdown-item">The Team</a>
                                 <a href="/Testimonial" className="dropdown-item">The Patients Reviews</a>
@@ -261,9 +261,9 @@ import React, { Component } from "react";
             <div className="col-lg-3 col-md-6">
                 <h4 className="d-inline-block text-primary text-uppercase border-bottom border-5 border-secondary mb-4">Quick Links</h4>
                 <div className="d-flex flex-column justify-content-start">
-                    <a className="text-light mb-2" href="/Home"><i className="fa fa-angle-right me-2"></i>Home</a>
+                    <a className="text-light mb-2" href="/"><i className="fa fa-angle-right me-2"></i>Home</a>
                     <a className="text-light mb-2" href="/About"><i className="fa fa-angle-right me-2"></i>About Us</a>
-                    <a className="text-light mb-2" href="/"><i className="fa fa-angle-right me-2"></i>Our Services</a>
+                    <a className="text-light mb-2" href="/Service"><i className="fa fa-angle-right me-2"></i>Our Services</a>
                     <a className="text-light mb-2" href="/Team"><i className="fa fa-angle-right me-2"></i>Meet The Team</a>
                     <a className="text-light mb-2" href="/Blog"><i className="fa fa-angle-right me-2"></i>Latest Blog</a>
                     <a className="text-light" href="Contact"><i className="fa fa-angle-right me-2"></i>Contact Us</a>
@@ -272,9 +272,9 @@ import React, { Component } from "react";
             <div className="col-lg-3 col-md-6">
                 <h4 className="d-inline-block text-primary text-uppercase border-bottom border-5 border-secondary mb-4">Popular Links</h4>
                 <div className="d-flex flex-column justify-content-start">
-                    <a className="text-light mb-2" href="/Home"><i className="fa fa-angle-right me-2"></i>Home</a>
+                    <a className="text-light mb-2" href="/"><i className="fa fa-angle-right me-2"></i>Home</a>
                     <a className="text-light mb-2" href="About"><i className="fa fa-angle-right me-2"></i>About Us</a>
-                    <a className="text-light mb-2" href="/"><i className="fa fa-angle-right me-2"></i>Our Services</a>
+                    <a className="text-light mb-2" href="/Service"><i className="fa fa-angle-right me-2"></i>Our Services</a>
                     <a className="text-light mb-2" href="/Team"><i className="fa fa-angle-right me-2"></i>Meet The Team</a>
                     <a className="text-light mb-2" href="/Blog"><i className="fa fa-angle-right me-2"></i>Latest Blog</a>
                     <a className="text-light" href="/Contact"><i className="fa fa-angle-right me-2"></i>Contact Us</a>

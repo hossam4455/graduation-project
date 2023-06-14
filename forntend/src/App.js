@@ -6,6 +6,7 @@ import Blog from './components/blog';
 import Contact from './components/contact';
 import Details from './components/details';
 import Register from './components/register';
+import Login from './components/login';
 import Price from './components/price'
 import Search  from './components/search';
 import Service from './components/service';
@@ -22,6 +23,7 @@ import Alfath from './components/alfath';
 import Almokhtabar from './components/almokhtbar';
 import Alshrook from './components/alshrook';
 import RoyalLab from './components/royal_lab';
+import DoctorDetails from './components/doctor_details';
 import { BrowserRouter as Router,Routes ,Route } from 'react-router-dom';
 
 
@@ -55,6 +57,8 @@ class App extends Component{
         <Route path='/Almokhtabar' Component={Almokhtabar}></Route>
         <Route path='/Alshrook' Component={Alshrook}></Route>
         <Route path='/RoyalLab' Component={RoyalLab}></Route>
+        <Route path='/DoctorDetails' Component={DoctorDetails}></Route>
+        <Route path='/Login' Component={Login}></Route>
 
 
 

@@ -17,7 +17,7 @@ class Alfath extends Component{
                     <li><a href="/Price">Pricing</a></li>
                     <li><a href="/Alfath">pages</a></li>
                     <li><a href="/Contact">Contact</a></li>
-                    <li><a href="/Register">login</a></li>
+                    <li><a href="/Login">login</a></li>
                     <li><a href="Register">signup</a></li>
                 </ul>
             </nav>

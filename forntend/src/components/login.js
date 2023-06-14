@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
- class Register extends Component{
+ class Login extends Component{
   
     render(){
         return(
@@ -77,17 +77,17 @@ import React, { Component } from "react";
    {/*  <!-- Navbar END --> */ }
    <div className="con">
     <div className="form-con">
-     
-
-      <form id="signupForm" className="sform">
-        <h2>Sign Up</h2>
-        <input type="text" id="signupName" placeholder="Full Name" required/>
-        <input type="email" id="signupEmail" placeholder="Email" required/>
-        <input type="password" id="signupPassword" placeholder="Password" required/>
-        <button type="submit">Sign up</button>
+      <form id="loginForm" className="sform">
+        <h2>Login</h2>
+        <input type="email" id="loginEmail" placeholder="Email" required/>
+        <input type="password" id="loginPassword" placeholder="Password" required/>
+        <button type="submit">Log in</button>
       </form>
+
+      
     </div>
   </div>
+
 
 
    {/*<!-- Footer Start --> */}
@@ -162,4 +162,4 @@ import React, { Component } from "react";
 
         )}
  }
- export default Register
+ export default Login
