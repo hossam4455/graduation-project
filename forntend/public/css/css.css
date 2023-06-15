@@ -17,9 +17,8 @@
     font-size: larger;
   }
   
- .formone input[type="text"],
-  input[type="email"],
-  
+.formone input[type="text"],
+
   input[type="file"]  {
     width: 40%;
     padding: 8px;
@@ -30,7 +29,7 @@
 
 
   }
-  .formone input[type="file"]{
+.formone input[type="file"]{
     margin-bottom: 20px;
   }
   
@@ -47,7 +46,7 @@
  .formone button:hover {
     background-color: #45a049;
   }
-  .formone select{
+.formone select{
    
         width: 100%;
         padding: 8px;
@@ -56,3 +55,4 @@
         
       
   }
+ 
