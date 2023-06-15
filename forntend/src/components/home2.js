@@ -6,7 +6,7 @@ class Home2 extends Component{
       <div className='App'>
       
 <body>
-  
+  {/*start Navbar */}
   <div className="hero_area">
     
     <header className="header_section">
@@ -46,7 +46,7 @@ class Home2 extends Component{
         </nav>
       </div>
     </header>
-    
+    {/*End Navbar */}
     <section className=" slider_section position-relative">
       <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
         <ol className="carousel-indicators">

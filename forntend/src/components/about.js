@@ -5,11 +5,13 @@ class About extends Component{
     render(){
         return(
             <div>
+        {/*Start Navbar*/}
  
- <Navbar />
+            <Navbar />
         
-
-       
+        {/*End Navbar*/}
+    
+        {/*Start body*/}
         <div class="container-fluid py-5">
             <div className="container">
                 <div className="row gx-5">
@@ -18,6 +20,8 @@ class About extends Component{
                             <img className="position-absolute w-100 h-100 rounded" src="img/about.jpg" alt="/" style={{ objectFit: "cover"}}/>
                         </div>
                     </div>
+
+
                     <div className="col-lg-7">
                         <div className="mb-4">
                             <h5 className="d-inline-block text-primary text-uppercase border-bottom border-5">About Us</h5>
@@ -35,18 +39,24 @@ class About extends Component{
                                     <h6 className="mb-0">Qualified<small className="d-block text-primary">Doctors</small></h6>
                                 </div>
                             </div>
+
+
                             <div className="col-sm-3 col-6">
                                 <div className="bg-light text-center rounded-circle py-4">
                                     <i className="fa fa-3x fa-procedures text-primary mb-3"></i>
                                     <h6 className="mb-0">Emergency<small className="d-block text-primary">Services</small></h6>
                                 </div>
                             </div>
+
+
                             <div className="col-sm-3 col-6">
                                 <div className="bg-light text-center rounded-circle py-4">
                                     <i className="fa fa-3x fa-microscope text-primary mb-3"></i>
                                     <h6 className="mb-0">Accurate<small className="d-block text-primary">Testing</small></h6>
                                 </div>
                             </div>
+
+
                             <div className="col-sm-3 col-6">
                                 <div className="bg-light text-center rounded-circle py-4">
                                     <i className="fas fa-3x fa-flask text-primary mb-3"></i>
@@ -69,6 +79,8 @@ class About extends Component{
                 <h1 className="display-4 mb-4">Find A Healthcare Professionals</h1>
                 <h5 className="fw-normal">/</h5>
             </div>
+
+
             <div className="mx-auto" style={{width: "100%", maxWidth: "600px"}}>
                 <div className="input-group">
                     <select className="form-select border-primary w-25" style={{height: "60px"}}>
@@ -81,6 +93,7 @@ class About extends Component{
                     <button className="btn btn-dark border-0 w-25">Search</button>
                 </div>
             </div>
+
         </div>
     </div>
     
@@ -93,6 +106,7 @@ class About extends Component{
                 <h5 className="d-inline-block text-primary text-uppercase border-bottom border-5">Our Doctors</h5>
                 <h1 className="display-4">Qualified Healthcare Professionals</h1>
             </div>
+
             <div className="owl-carousel team-carousel position-relative">
                 <div className="team-item">
                     <div className="row g-0 bg-light rounded overflow-hidden">
@@ -154,12 +168,13 @@ class About extends Component{
             </div>
         </div>
     </div>
+    {/*End body*/}
 
-
+{/*Start Footer*/}
 
 <Footer />
 
-
+{/*End Footer*/}
             </div>
         )
     }
