@@ -23,6 +23,9 @@ urlpatterns = [
     path('doctor/', include('doctor.urls')),
     path('api-auth/', include('rest_framework.urls')),
     path('patient/', include('patient.urls')),
+    path('api/', include('authentication.urls')),
+    path(r'api/auth/', include('knox.urls')),
+    path('users/', include('users.urls')),
 ]
 urlpatterns+=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

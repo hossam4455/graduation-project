@@ -45,7 +45,16 @@ INSTALLED_APPS = [
     'patient',
     'rest_framework',
   'corsheaders',
+
+      'django_extensions',
+    'authentication',
+    'knox',
+    'users',
    
+    'boto3'
+
+  
+
 
 ]
 
@@ -81,7 +90,7 @@ CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
 ]
 WSGI_APPLICATION = 'CMS.wsgi.application'
-
+AUTH_USER_MODEL='users.CustomUser'
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
@@ -92,6 +101,12 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+SWAGGER_SETTINGS = {
+    'LOGIN_URL': 'rest_framework:login',
+    'LOGOUT_URL': 'rest_framework:logout'
+}
+
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 db_path = os.path.join(BASE_DIR, "PupilPremiumTable.db")
