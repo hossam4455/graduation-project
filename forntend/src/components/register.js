@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Navbar from "./navbar";
 import Footer from "./footer";
 
+
  class Register extends Component{
   
     render(){

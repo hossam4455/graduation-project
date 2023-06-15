@@ -59,7 +59,7 @@ class Search extends Component{
                         </div>
                         <div className="col-12 col-sm-7 h-100 d-flex flex-column">
                             <div className="mt-auto p-4">
-                                <h3>Doctor Name</h3>
+                              <a href="/ProfileDoctor"> <h3>Doctor Name</h3></a> 
                                 <h6 className="fw-normal fst-italic text-primary mb-4">Cardiology Specialist</h6>
                                 <p className="m-0"></p>
                             </div>
