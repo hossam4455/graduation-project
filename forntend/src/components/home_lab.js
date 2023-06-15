@@ -1,28 +1,13 @@
 import React, { Component } from "react";
+import Labnav from "./labnavbar";
 class HomeLAb extends Component{
     render(){
         return(
             <div>
-                <header>
-        <div className="container">
-                    <a href="/" className="logo">
-                        <img src="img/logo.jpeg" alt="Logo" />
-                    </a>
-                    <nav>
+               {/* start Navbar */}
 
-                        <ul>
-                            <li><a className="active" href="/">Home</a></li>
-                            <li><a href="/About">About</a></li>
-                            <li><a href="/Price">Pricing</a></li>
-                            <li><a href="/HomeLab">pages</a></li>
-                            <li><a href="/Contact">Contact</a></li>
-                            <li><a href="/Login">login</a></li>
-                            <li><a href="/Register">signup</a></li>
-                        </ul>
-
-                    </nav>
-                </div>
-                </header>
+        <Labnav/>
+       {/*  End Navbar */}
         
             <div className="landing">
                 <div className="overlay"></div>

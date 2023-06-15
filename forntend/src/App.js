@@ -25,7 +25,11 @@ import Alshrook from './components/alshrook';
 import RoyalLab from './components/royal_lab';
 import DoctorDetails from './components/doctor_details';
 import ProfileDoctor from './components/doctor_profile';
+import Labnav from './components/labnavbar';
+import Labform from './components/labform';
+import PharmNav from './components/navbarpharm';
 import { BrowserRouter as Router,Routes ,Route } from 'react-router-dom';
+
 
 
 class App extends Component{
@@ -60,6 +64,10 @@ class App extends Component{
         <Route path='/RoyalLab' Component={RoyalLab}></Route>
         <Route path='/DoctorDetails' Component={DoctorDetails}></Route>
         <Route path='/ProfileDoctor' Component={ProfileDoctor}></Route>
+        <Route path='/Labnav' Component={Labnav}></Route>
+        <Route path='/Labform' Component={Labform}></Route>
+        <Route path='/PharmNav' Component={PharmNav}></Route>
+
         <Route path='/Login' Component={Login}></Route>
 
 
