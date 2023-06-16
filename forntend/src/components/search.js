@@ -39,7 +39,7 @@ class Search extends Component{
                         <option value="3">Department 3</option>
                     </select>
                     
-                   
+                    <input type="text" className="form-control border-primary w-50" placeholder="Keyword"/>
                     <button className="btn btn-dark border-0 w-25">Search</button>
                 </div>
             </div>
@@ -59,6 +59,25 @@ class Search extends Component{
                         </div>
                         <div className="col-12 col-sm-7 h-100 d-flex flex-column">
                             <div className="mt-auto p-4">
+                              <a href="/ProfileDoctor"> <h3>Doctor Name</h3></a> 
+                                <h6 className="fw-normal fst-italic text-primary mb-4">Cardiology Specialist</h6>
+                                <p className="m-0"></p>
+                            </div>
+                            <div className="d-flex mt-auto border-top p-4">
+                                <a className="btn btn-lg btn-primary btn-lg-square rounded-circle me-3" href="/Search"><i className="fab fa-twitter"></i></a>
+                                <a className="btn btn-lg btn-primary btn-lg-square rounded-circle me-3" href="/Search"><i className="fab fa-facebook-f"></i></a>
+                                <a className="btn btn-lg btn-primary btn-lg-square rounded-circle" href="/Search"><i className="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="col-lg-6 team-item">
+                    <div className="row g-0 bg-light rounded overflow-hidden">
+                        <div className="col-12 col-sm-5 h-100">
+                            <img className="img-fluid h-100" alt="/Search" src="img/team-2.jpg" style={{objectFit: "cover"}}/>
+                        </div>
+                        <div className="col-12 col-sm-7 h-100 d-flex flex-column">
+                            <div className="mt-auto p-4">
                                 <h3>Doctor Name</h3>
                                 <h6 className="fw-normal fst-italic text-primary mb-4">Cardiology Specialist</h6>
                                 <p className="m-0"></p>
@@ -71,7 +90,82 @@ class Search extends Component{
                         </div>
                     </div>
                 </div>
-           
+                <div className="col-lg-6 team-item">
+                    <div className="row g-0 bg-light rounded overflow-hidden">
+                        <div className="col-12 col-sm-5 h-100">
+                            <img className="img-fluid h-100" alt="/" src="img/team-3.jpg" style={{objectFit: "cover"}}/>
+                        </div>
+                        <div className="col-12 col-sm-7 h-100 d-flex flex-column">
+                            <div className="mt-auto p-4">
+                                <h3>Doctor Name</h3>
+                                <h6 className="fw-normal fst-italic text-primary mb-4">Cardiology Specialist</h6>
+                                <p className="m-0"></p>
+                            </div>
+                            <div className="d-flex mt-auto border-top p-4">
+                                <a className="btn btn-lg btn-primary btn-lg-square rounded-circle me-3" href="/Search"><i className="fab fa-twitter"></i></a>
+                                <a className="btn btn-lg btn-primary btn-lg-square rounded-circle me-3" href="/Search"><i className="fab fa-facebook-f"></i></a>
+                                <a className="btn btn-lg btn-primary btn-lg-square rounded-circle" href="/Search"><i className="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="col-lg-6 team-item">
+                    <div className="row g-0 bg-light rounded overflow-hidden">
+                        <div className="col-12 col-sm-5 h-100">
+                            <img className="img-fluid h-100" alt="" src="img/team-1.jpg" style={{objectFit: "cover"}}/>
+                        </div>
+                        <div className="col-12 col-sm-7 h-100 d-flex flex-column">
+                            <div className="mt-auto p-4">
+                                <h3>Doctor Name</h3>
+                                <h6 className="fw-normal fst-italic text-primary mb-4">Cardiology Specialist</h6>
+                                <p className="m-0"></p>
+                            </div>
+                            <div className="d-flex mt-auto border-top p-4">
+                                <a className="btn btn-lg btn-primary btn-lg-square rounded-circle me-3" href="/Search"><i className="fab fa-twitter"></i></a>
+                                <a className="btn btn-lg btn-primary btn-lg-square rounded-circle me-3" href="/Search"><i className="fab fa-facebook-f"></i></a>
+                                <a className="btn btn-lg btn-primary btn-lg-square rounded-circle" href="/Search"><i className="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="col-lg-6 team-item">
+                    <div className="row g-0 bg-light rounded overflow-hidden">
+                        <div className="col-12 col-sm-5 h-100">
+                            <img className="img-fluid h-100" alt="" src="img/team-2.jpg" style={{objectFit: "cover"}}/>
+                        </div>
+                        <div className="col-12 col-sm-7 h-100 d-flex flex-column">
+                            <div className="mt-auto p-4">
+                                <h3>Doctor Name</h3>
+                                <h6 className="fw-normal fst-italic text-primary mb-4">Cardiology Specialist</h6>
+                                <p className="m-0"></p>
+                            </div>
+                            <div className="d-flex mt-auto border-top p-4">
+                                <a className="btn btn-lg btn-primary btn-lg-square rounded-circle me-3" href="/Search"><i className="fab fa-twitter"></i></a>
+                                <a className="btn btn-lg btn-primary btn-lg-square rounded-circle me-3" href="/Search"><i className="fab fa-facebook-f"></i></a>
+                                <a className="btn btn-lg btn-primary btn-lg-square rounded-circle" href="/Search"><i className="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="col-lg-6 team-item">
+                    <div className="row g-0 bg-light rounded overflow-hidden">
+                        <div className="col-12 col-sm-5 h-100">
+                            <img className="img-fluid h-100" alt="" src="img/team-3.jpg" style={{objectFit: "cover"}}/>
+                        </div>
+                        <div className="col-12 col-sm-7 h-100 d-flex flex-column">
+                            <div className="mt-auto p-4">
+                                <h3>Doctor Name</h3>
+                                <h6 className="fw-normal fst-italic text-primary mb-4">Cardiology Specialist</h6>
+                                <p className="m-0"></p>
+                            </div>
+                            <div className="d-flex mt-auto border-top p-4">
+                                <a className="btn btn-lg btn-primary btn-lg-square rounded-circle me-3" href="/Search"><i className="fab fa-twitter"></i></a>
+                                <a className="btn btn-lg btn-primary btn-lg-square rounded-circle me-3" href="/Search"><i className="fab fa-facebook-f"></i></a>
+                                <a className="btn btn-lg btn-primary btn-lg-square rounded-circle" href="/Search"><i className="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div className="col-12 text-center">
                     <button className="btn btn-primary py-3 px-5">Load More</button>
                 </div>
