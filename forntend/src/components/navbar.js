@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+const email = localStorage.getItem('email');
 class Navbar extends Component{
     render(){
         return(
@@ -11,7 +11,7 @@ class Navbar extends Component{
                     <div className="d-inline-flex align-items-center">
                         <a className="text-decoration-none text-body pe-3" href="/"><i className="bi bi-telephone me-2"></i>+0111 054 3007</a>
                         <span className="text-body">|</span>
-                        <a className="text-decoration-none text-body px-3" href="/"><i className="bi bi-envelope me-2"></i>Gad@gmail.com</a>
+                        <a className="text-decoration-none text-body px-3" href="/"><i className="bi bi-envelope me-2"></i>{email}</a>
                     </div>
                 </div>
                 <div className="col-md-6 text-center text-lg-end">

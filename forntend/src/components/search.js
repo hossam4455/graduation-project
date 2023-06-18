@@ -1,190 +1,153 @@
-import React, { Component } from "react";
+import React, { useEffect, useState } from 'react';
 import Navbar from "./navbar";
 import Footer from "./footer";
-class Search extends Component{
-    render(){
-        return(
-            <div>
-                
-   
 
+const Team = () => {
+  const [doctorsData, setDoctorsData] = useState([]);
+  const [selectedDepartment, setSelectedDepartment] = useState('');
+  const [selectedAddress, setSelectedAddress] = useState('');
+  const [searchName, setSearchName] = useState('');
 
-    {/*<!-- Navbar Start --> */}
-    <Navbar/>
-   
-    {/* <!-- Navbar End -->
+  useEffect(() => {
+    // Fetch the doctors data from the API
+    fetch('http://127.0.0.1:8000/api/register')
+      .then(response => response.json())
+      .then(data => setDoctorsData(data))
+      .catch(error => console.log(error));
+  }, []);
 
+  if (doctorsData.length === 0) {
+    return <div>Loading...</div>;
+  }
 
+  const handleDepartmentChange = (e) => {
+    setSelectedDepartment(e.target.value);
+  };
 
-    <!-- Search Start --> */}
-    
-    <div className="container-fluid ">
-        <div className="container py-5">
-            <div className="text-center mx-auto mb-5" style={{maxWidth: "500px"}}>
-                <h5 className="d-inline-block text-white text-uppercase border-bottom border-5">Find A Doctor</h5>
-                <h1 className="display-4 mb-4">Find A Healthcare Professionals</h1>
-                
-            </div>
-            <div className="mx-auto" style={{width: "100%", maxWidth: "600px"}}>
-                <div className="input-group">
-                    <select className="form-select border-primary w-25" style={{height: "60px"}}>
-                        <option selected>Department</option>
-                        <option value="1">Department 1</option>
-                        <option value="2">Department 2</option>
-                        <option value="3">Department 3</option>
-                    </select>
-                    <select className="form-select border-primary w-25" style={{height: "60px"}}>
-                        <option selected>City</option>
-                        <option value="1">القاهره</option>
-                        <option value="2">المنصوره</option>
-                        <option value="3">اسيوط</option>
-                    </select>
-                    <input type="text" className="form-control border-primary w-50" placeholder="Doctor Name" style={{height: "60px"}}/>
-                    
-                    <button className="btn btn-dark border-0 w-25">Search</button>
-                </div>
-            </div>
+  const handleAddressChange = (e) => {
+    setSelectedAddress(e.target.value);
+  };
+
+  const handleSearchChange = (e) => {
+    setSearchName(e.target.value);
+  };
+
+  const filteredDoctors = doctorsData.filter(doctor => {
+    if (selectedDepartment && selectedAddress && searchName) {
+      return (
+        doctor.department === selectedDepartment &&
+        doctor.address === selectedAddress &&
+        doctor.doctor_name.toLowerCase().includes(searchName.toLowerCase())
+      );
+    } else if (selectedDepartment && selectedAddress) {
+      return (
+        doctor.department === selectedDepartment &&
+        doctor.address === selectedAddress
+      );
+    } else if (selectedDepartment && searchName) {
+      return (
+        doctor.department === selectedDepartment &&
+        doctor.doctor_name.toLowerCase().includes(searchName.toLowerCase())
+      );
+    } else if (selectedAddress && searchName) {
+      return (
+        doctor.address === selectedAddress &&
+        doctor.doctor_name.toLowerCase().includes(searchName.toLowerCase())
+      );
+    } else if (selectedDepartment) {
+      return doctor.department === selectedDepartment;
+    } else if (selectedAddress) {
+      return doctor.address === selectedAddress;
+    } else if (searchName) {
+      return doctor.doctor_name.toLowerCase().includes(searchName.toLowerCase());
+    }
+    return true;
+  });
+
+  return (
+    <div>
+      <Navbar />
+      {/* Your existing code */}
+      <div className="mx-auto" style={{ width: "100%", maxWidth: "600px" }}>
+        <div className="input-group">
+          <select
+            className="form-select border-primary w-25"
+            style={{ height: "60px" }}
+            value={selectedDepartment}
+            onChange={handleDepartmentChange}
+          >
+            <option value="">Department</option>
+            <option value="dentis">dentis</option>
+            <option value="Department 2">Department 2</option>
+            <option value="Department 3">Department 3</option>
+          </select>
+          <select
+            className="form-select border-primary w-25"
+            style={{ height: "60px" }}
+            value={selectedAddress}
+            onChange={handleAddressChange}
+          >
+            <option value="">Address</option>
+            <option value="Assiut, Almazah, Heliopolis, Egypt">Assiut, Almazah, Heliopolis, Egypt</option>
+            <option value="Address 2">Address 2</option>
+            <option value="Address 3">Address 3</option>
+          </select>
+          <input
+            type="text"
+            className="form-control border-primary w-50"
+            placeholder="Doctor Name"
+            style={{ height: "60px" }}
+            value={searchName}
+            onChange={handleSearchChange}
+          />
         </div>
-    </div>
-   {/*  <!-- Search End -->
-
-
-    <!-- Search Result Start --> */}
-    <div className="container-fluid py-5">
+      </div>
+      <div className="container-fluid py-5">
         <div className="container">
-            <div className="row g-5">
-                <div className="col-lg-6 team-item">
-                    <div className="row g-0 bg-light rounded overflow-hidden">
-                        <div className="col-12 col-sm-5 h-100">
-                            <img className="img-fluid h-100" alt="/" src="img/team-1.jpg" style={{objectFit: "cover"}}/>
-                        </div>
-                        <div className="col-12 col-sm-7 h-100 d-flex flex-column">
-                            <div className="mt-auto p-4">
-                              <a href="/ProfileDoctor"> <h3>Doctor Name</h3></a> 
-                                <h6 className="fw-normal fst-italic text-primary mb-4">Cardiology Specialist</h6>
-                                <p className="m-0"></p>
-                            </div>
-                            <div className="d-flex mt-auto border-top p-4">
-                                <a className="btn btn-lg btn-primary btn-lg-square rounded-circle me-3" href="/Search"><i className="fab fa-twitter"></i></a>
-                                <a className="btn btn-lg btn-primary btn-lg-square rounded-circle me-3" href="/Search"><i className="fab fa-facebook-f"></i></a>
-                                <a className="btn btn-lg btn-primary btn-lg-square rounded-circle" href="/Search"><i className="fab fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
+          <div className="row g-5">
+            {filteredDoctors.map(doctor => (
+              <div key={doctor.id} className="col-lg-6 team-item">
+                <div className="row g-0 bg-light rounded overflow-hidden">
+                  <div className="col-12 col-sm-5 h-100">
+                    <img
+                      className="img-fluid h-100"
+                      alt=""
+                      src={doctor.image}
+                      onError={e => {
+                        e.target.src = doctor.image; // Replace with your fallback image URL
+                      }}
+                      style={{ objectFit: 'cover' }}
+                    />
+                  </div>
+                  <div className="col-12 col-sm-7 h-100 d-flex flex-column">
+                    <div className="mt-auto p-4">
+                      <a href="/ProfileDoctor">
+                        <h3>{doctor.doctor_name}</h3>
+                      </a>
+                      <h6 className="fw-normal fst-italic text-primary mb-4">{doctor.department}</h6>
+                      <p className="m-0"></p>
                     </div>
-                </div>
-                <div className="col-lg-6 team-item">
-                    <div className="row g-0 bg-light rounded overflow-hidden">
-                        <div className="col-12 col-sm-5 h-100">
-                            <img className="img-fluid h-100" alt="/Search" src="img/team-2.jpg" style={{objectFit: "cover"}}/>
-                        </div>
-                        <div className="col-12 col-sm-7 h-100 d-flex flex-column">
-                            <div className="mt-auto p-4">
-                                <h3>Doctor Name</h3>
-                                <h6 className="fw-normal fst-italic text-primary mb-4">Cardiology Specialist</h6>
-                                <p className="m-0"></p>
-                            </div>
-                            <div className="d-flex mt-auto border-top p-4">
-                                <a className="btn btn-lg btn-primary btn-lg-square rounded-circle me-3" href="/Search"><i className="fab fa-twitter"></i></a>
-                                <a className="btn btn-lg btn-primary btn-lg-square rounded-circle me-3" href="/Search"><i className="fab fa-facebook-f"></i></a>
-                                <a className="btn btn-lg btn-primary btn-lg-square rounded-circle" href="/Search"><i className="fab fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
+                    <div className="d-flex mt-auto border-top p-4">
+                      <a className="btn btn-lg btn-primary btn-lg-square rounded-circle me-3" href="/Search">
+                        <i className="fab fa-twitter"></i>
+                      </a>
+                      <a className="btn btn-lg btn-primary btn-lg-square rounded-circle me-3" href="/Search">
+                        <i className="fab fa-facebook-f"></i>
+                      </a>
+                      <a className="btn btn-lg btn-primary btn-lg-square rounded-circle" href="/Search">
+                        <i className="fab fa-linkedin-in"></i>
+                      </a>
                     </div>
+                  </div>
                 </div>
-                <div className="col-lg-6 team-item">
-                    <div className="row g-0 bg-light rounded overflow-hidden">
-                        <div className="col-12 col-sm-5 h-100">
-                            <img className="img-fluid h-100" alt="/" src="img/team-3.jpg" style={{objectFit: "cover"}}/>
-                        </div>
-                        <div className="col-12 col-sm-7 h-100 d-flex flex-column">
-                            <div className="mt-auto p-4">
-                                <h3>Doctor Name</h3>
-                                <h6 className="fw-normal fst-italic text-primary mb-4">Cardiology Specialist</h6>
-                                <p className="m-0"></p>
-                            </div>
-                            <div className="d-flex mt-auto border-top p-4">
-                                <a className="btn btn-lg btn-primary btn-lg-square rounded-circle me-3" href="/Search"><i className="fab fa-twitter"></i></a>
-                                <a className="btn btn-lg btn-primary btn-lg-square rounded-circle me-3" href="/Search"><i className="fab fa-facebook-f"></i></a>
-                                <a className="btn btn-lg btn-primary btn-lg-square rounded-circle" href="/Search"><i className="fab fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="col-lg-6 team-item">
-                    <div className="row g-0 bg-light rounded overflow-hidden">
-                        <div className="col-12 col-sm-5 h-100">
-                            <img className="img-fluid h-100" alt="" src="img/team-1.jpg" style={{objectFit: "cover"}}/>
-                        </div>
-                        <div className="col-12 col-sm-7 h-100 d-flex flex-column">
-                            <div className="mt-auto p-4">
-                                <h3>Doctor Name</h3>
-                                <h6 className="fw-normal fst-italic text-primary mb-4">Cardiology Specialist</h6>
-                                <p className="m-0"></p>
-                            </div>
-                            <div className="d-flex mt-auto border-top p-4">
-                                <a className="btn btn-lg btn-primary btn-lg-square rounded-circle me-3" href="/Search"><i className="fab fa-twitter"></i></a>
-                                <a className="btn btn-lg btn-primary btn-lg-square rounded-circle me-3" href="/Search"><i className="fab fa-facebook-f"></i></a>
-                                <a className="btn btn-lg btn-primary btn-lg-square rounded-circle" href="/Search"><i className="fab fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="col-lg-6 team-item">
-                    <div className="row g-0 bg-light rounded overflow-hidden">
-                        <div className="col-12 col-sm-5 h-100">
-                            <img className="img-fluid h-100" alt="" src="img/team-2.jpg" style={{objectFit: "cover"}}/>
-                        </div>
-                        <div className="col-12 col-sm-7 h-100 d-flex flex-column">
-                            <div className="mt-auto p-4">
-                                <h3>Doctor Name</h3>
-                                <h6 className="fw-normal fst-italic text-primary mb-4">Cardiology Specialist</h6>
-                                <p className="m-0"></p>
-                            </div>
-                            <div className="d-flex mt-auto border-top p-4">
-                                <a className="btn btn-lg btn-primary btn-lg-square rounded-circle me-3" href="/Search"><i className="fab fa-twitter"></i></a>
-                                <a className="btn btn-lg btn-primary btn-lg-square rounded-circle me-3" href="/Search"><i className="fab fa-facebook-f"></i></a>
-                                <a className="btn btn-lg btn-primary btn-lg-square rounded-circle" href="/Search"><i className="fab fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="col-lg-6 team-item">
-                    <div className="row g-0 bg-light rounded overflow-hidden">
-                        <div className="col-12 col-sm-5 h-100">
-                            <img className="img-fluid h-100" alt="" src="img/team-3.jpg" style={{objectFit: "cover"}}/>
-                        </div>
-                        <div className="col-12 col-sm-7 h-100 d-flex flex-column">
-                            <div className="mt-auto p-4">
-                                <h3>Doctor Name</h3>
-                                <h6 className="fw-normal fst-italic text-primary mb-4">Cardiology Specialist</h6>
-                                <p className="m-0"></p>
-                            </div>
-                            <div className="d-flex mt-auto border-top p-4">
-                                <a className="btn btn-lg btn-primary btn-lg-square rounded-circle me-3" href="/Search"><i className="fab fa-twitter"></i></a>
-                                <a className="btn btn-lg btn-primary btn-lg-square rounded-circle me-3" href="/Search"><i className="fab fa-facebook-f"></i></a>
-                                <a className="btn btn-lg btn-primary btn-lg-square rounded-circle" href="/Search"><i className="fab fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="col-12 text-center">
-                    <button className="btn btn-primary py-3 px-5">Load More</button>
-                </div>
-            </div>
+              </div>
+            ))}
+          </div>
         </div>
+      </div>
+      <Footer />
     </div>
-    {/* <!-- Search Result End -->
+  );
+};
 
-
-<!-- Footer Start --> */}
-
-<Footer/>
-{/* <!-- Footer End -->*/}
-
-
-
-    
-            </div>
-        )}
-}
-export default Search
+export default Team;

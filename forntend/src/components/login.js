@@ -63,9 +63,11 @@ const MyForm = () => {
         // Retrieve the token from the response
         const token = data.token;
         const id=data.user.id
+        const email=data.user.email
         console.log(token);
         localStorage.setItem('token', token);
         localStorage.setItem('id', id);
+        localStorage.setItem('email', email);
 
 
         // You can save the token in local storage or state for future use
