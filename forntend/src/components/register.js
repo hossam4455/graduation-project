@@ -140,7 +140,7 @@ const MyForm = () => {
           <option value="patient">Patient</option>
         </select>
 
-        <button type="submit">Submit</button>
+       
       <label>Uplode Image:</label>
       <input
         type="file" // Set the input type to 'file'
@@ -148,7 +148,7 @@ const MyForm = () => {
         onChange={handleChange}
       />
       <br/>
-      <button type="submit">Add Doctor</button>
+     <a href='/Login'> <button type="submit">Add Doctor</button></a>
     </form>
     <Footer/>
     </div>

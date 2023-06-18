@@ -28,6 +28,7 @@ import ProfileDoctor from './components/doctor_profile';
 import Labnav from './components/labnavbar';
 import Labform from './components/labform';
 import PharmNav from './components/navbarpharm';
+import RigisterPatient from './components/register_patient';
 import { BrowserRouter as Router,Routes ,Route } from 'react-router-dom';
 
 
@@ -67,6 +68,7 @@ class App extends Component{
         <Route path='/Labnav' Component={Labnav}></Route>
         <Route path='/Labform' Component={Labform}></Route>
         <Route path='/PharmNav' Component={PharmNav}></Route>
+        <Route path='/RigisterPatient' Component={RigisterPatient}></Route>
 
         <Route path='/Login' Component={Login}></Route>
 

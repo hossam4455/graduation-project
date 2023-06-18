@@ -66,7 +66,13 @@ class Navbar extends Component{
                         </div>
                         <a href="/Contact" className="nav-item nav-link">Contact</a>
                         <a href="/Login" className="nav-item nav-link">Login</a>
-                        <a href="/Register" className="nav-item nav-link">Sign Up</a>
+                        <div className="nav-item dropdown">
+                            <a href="/Register" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Signup</a>
+                            <div className="dropdown-menu m-0">
+                                <a href="/Register"className="dropdown-item">Doctor</a>
+                                <a href="/RigisterPatient" className="dropdown-item">Patient</a>   
+                            </div>
+                        </div>
                     </div>
                 </div>
             </nav>

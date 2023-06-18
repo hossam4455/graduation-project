@@ -17,12 +17,13 @@ class Search extends Component{
 
 
     <!-- Search Start --> */}
-    <div className="container-fluid pt-5">
-        <div className="container">
+    
+    <div className="container-fluid ">
+        <div className="container py-5">
             <div className="text-center mx-auto mb-5" style={{maxWidth: "500px"}}>
-                <h5 className="d-inline-block text-primary text-uppercase border-bottom border-5">Find A Doctor</h5>
+                <h5 className="d-inline-block text-white text-uppercase border-bottom border-5">Find A Doctor</h5>
                 <h1 className="display-4 mb-4">Find A Healthcare Professionals</h1>
-                <h5 className="fw-normal"> </h5>
+                
             </div>
             <div className="mx-auto" style={{width: "100%", maxWidth: "600px"}}>
                 <div className="input-group">
@@ -33,13 +34,13 @@ class Search extends Component{
                         <option value="3">Department 3</option>
                     </select>
                     <select className="form-select border-primary w-25" style={{height: "60px"}}>
-                        <option selected>Department</option>
-                        <option value="1">Department 1</option>
-                        <option value="2">Department 2</option>
-                        <option value="3">Department 3</option>
+                        <option selected>City</option>
+                        <option value="1">القاهره</option>
+                        <option value="2">المنصوره</option>
+                        <option value="3">اسيوط</option>
                     </select>
+                    <input type="text" className="form-control border-primary w-50" placeholder="Doctor Name" style={{height: "60px"}}/>
                     
-                    <input type="text" className="form-control border-primary w-50" placeholder="Keyword"/>
                     <button className="btn btn-dark border-0 w-25">Search</button>
                 </div>
             </div>

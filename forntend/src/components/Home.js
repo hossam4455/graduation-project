@@ -359,7 +359,7 @@ import Footer from "./footer";
             <div className="text-center mx-auto mb-5" style={{maxWidth: "500px"}}>
                 <h5 className="d-inline-block text-white text-uppercase border-bottom border-5">Find A Doctor</h5>
                 <h1 className="display-4 mb-4">Find A Healthcare Professionals</h1>
-                <h5 className="text-white fw-normal">/</h5>
+                
             </div>
             <div className="mx-auto" style={{width: "100%", maxWidth: "600px"}}>
                 <div className="input-group">
@@ -369,7 +369,7 @@ import Footer from "./footer";
                         <option value="2">Department 2</option>
                         <option value="3">Department 3</option>
                     </select>
-                    <input type="text" className="form-control border-primary w-50" placeholder="Keyword"/>
+                    <input type="text" className="form-control border-primary w-50" placeholder="Keyword" style={{height: "60px"}}/>
                     <button className="btn btn-dark border-0 w-25">Search</button>
                 </div>
             </div>
