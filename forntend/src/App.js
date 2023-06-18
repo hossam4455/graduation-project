@@ -29,6 +29,7 @@ import Labnav from './components/labnavbar';
 import Labform from './components/labform';
 import PharmNav from './components/navbarpharm';
 import RigisterPatient from './components/register_patient';
+import CreateAppointment from './components/appointment';
 import { BrowserRouter as Router,Routes ,Route } from 'react-router-dom';
 
 
@@ -69,6 +70,7 @@ class App extends Component{
         <Route path='/Labform' Component={Labform}></Route>
         <Route path='/PharmNav' Component={PharmNav}></Route>
         <Route path='/RigisterPatient' Component={RigisterPatient}></Route>
+        <Route path='/CreateAppointment' Component={CreateAppointment}></Route>
 
         <Route path='/Login' Component={Login}></Route>
 

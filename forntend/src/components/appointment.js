@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-  
+import Navbar from './navbar';
+import Footer from './footer';
 const CreateAppointment = () => {
     const storedUserId = localStorage.getItem('id');
   const [formData, setFormData] = useState({
@@ -57,8 +58,11 @@ const CreateAppointment = () => {
 
   return (
     <div>
+      <Navbar/>
+      
+      <form onSubmit={handleSubmit} className='appointment'>
       <h1>Create Appointment</h1>
-      <form onSubmit={handleSubmit}>
+      
         <label htmlFor="doctor">Doctor:</label>
         <select id="doctor" name="doctor" onChange={handleInputChange}>
           <option value="">Select a doctor</option>
@@ -80,6 +84,7 @@ const CreateAppointment = () => {
 
         <button type="submit">Create</button>
       </form>
+      <Footer/>
     </div>
   );
 };
