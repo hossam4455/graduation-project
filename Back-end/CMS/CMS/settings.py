@@ -44,14 +44,20 @@ INSTALLED_APPS = [
     'doctor',
     'patient',
     'rest_framework',
-  'corsheaders',
+    'corsheaders',
 
-      'django_extensions',
+    'django_extensions',
     'authentication',
     'knox',
     'users',
    
-    'boto3'
+    'boto3',
+     
+    'rest_framework_simplejwt.token_blacklist',
+   
+    "rest_framework.authtoken",
+
+   
 
   
 
@@ -69,6 +75,20 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
 ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+}
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ]
+}
 ROOT_URLCONF = 'CMS.urls'
 
 TEMPLATES = [
@@ -89,6 +109,7 @@ TEMPLATES = [
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
 ]
+
 WSGI_APPLICATION = 'CMS.wsgi.application'
 AUTH_USER_MODEL='users.CustomUser'
 

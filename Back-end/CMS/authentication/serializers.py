@@ -63,6 +63,6 @@ class LoginSerializer(serializers.Serializer):
 class sigSerializer(serializers.Serializer):
 
     username = serializers.CharField()
-
+    id = serializers.IntegerField()
     bio = serializers.CharField()
     email = serializers.CharField()

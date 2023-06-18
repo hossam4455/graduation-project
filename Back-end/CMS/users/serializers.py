@@ -9,5 +9,5 @@ from users.models import CustomUser
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustomUser
-        fields = ('id', 'username', 'email','bio','doctor_name','department','cost','address','image','role')
+        fields = ('id', 'username', 'email','bio','doctor_name','department','cost','address','image','password1', 'password2')
     
