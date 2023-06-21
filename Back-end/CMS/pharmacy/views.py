@@ -57,17 +57,17 @@ class UserCardListView(APIView):
         return Response(serializer.errors, status=400)
 
 class UserCardDetailView(APIView):
-    def get(self, request, id):
+    def get(self, request, pk):
         try:
-            user_card = UserCard.objects.get(pk=id)
+            user_card = UserCard.objects.get(pk=pk)
             serializer = UserCardSerializer(user_card)
             return Response(serializer.data)
         except UserCard.DoesNotExist:
             return Response({'error': 'User Card not found'}, status=404)
 
-    def put(self, request, id):
+    def put(self, request, pk):
         try:
-            user_card = UserCard.objects.get(pk=id)
+            user_card = UserCard.objects.get(pk=pk)
             serializer = UserCardSerializer(user_card, data=request.data)
             if serializer.is_valid():
                 serializer.save()
