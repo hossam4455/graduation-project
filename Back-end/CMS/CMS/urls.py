@@ -23,6 +23,7 @@ urlpatterns = [
     path('doctor/', include('doctor.urls')),
     path('api-auth/', include('rest_framework.urls')),
     path('patient/', include('patient.urls')),
+    path('pharmacy/', include('pharmacy.urls')),
     path('api/', include('authentication.urls')),
     path(r'api/auth/', include('knox.urls')),
     path('users/', include('users.urls')),
