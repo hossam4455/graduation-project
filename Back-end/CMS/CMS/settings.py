@@ -44,8 +44,26 @@ INSTALLED_APPS = [
     'doctor',
     'patient',
     'rest_framework',
-  'corsheaders',
+    'corsheaders',
+
+    'django_extensions',
+    'authentication',
+    'knox',
+    'users',
    
+    'boto3',
+     
+    'rest_framework_simplejwt.token_blacklist',
+   
+    "rest_framework.authtoken",
+    "appointments",
+    "subscriptions",
+   
+
+   
+
+  
+
 
 ]
 
@@ -60,12 +78,26 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
 ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+}
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ]
+}
 ROOT_URLCONF = 'CMS.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -80,8 +112,9 @@ TEMPLATES = [
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
 ]
-WSGI_APPLICATION = 'CMS.wsgi.application'
 
+WSGI_APPLICATION = 'CMS.wsgi.application'
+AUTH_USER_MODEL='users.CustomUser'
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
@@ -92,6 +125,12 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+SWAGGER_SETTINGS = {
+    'LOGIN_URL': 'rest_framework:login',
+    'LOGOUT_URL': 'rest_framework:logout'
+}
+
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 db_path = os.path.join(BASE_DIR, "PupilPremiumTable.db")
@@ -211,6 +250,9 @@ REST_FRAMEWORK = {
 }
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
+STRIPE_PUBLIC_KEY = ""
+STRIPE_SECRET_KEY = "sk_test_51NKjmnILv3wZ5cABNiMBqT8gjxC55g1EOec9QrrSl6KSqch8znOvAJR2gaoycWGRAVQBAqkuHHHJSRxBNAy7FBvu00uMYjt43R"
+STRIPE_WEBHOOK_SECRET = ""
 
 LANGUAGE_CODE = 'en-us'
 
@@ -221,7 +263,7 @@ USE_I18N = True
 USE_TZ = True
 MEDIA_ROOT=os.path.join(BASE_DIR,"media")
 MEDIA_URL='/media/'
-
+CORS_ORIGIN_ALLOW_ALL = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/

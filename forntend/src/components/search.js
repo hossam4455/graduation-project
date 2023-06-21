@@ -2,7 +2,16 @@ import React, { useEffect, useState } from 'react';
 import Navbar from "./navbar";
 import Footer from "./footer";
 
+import { Link } from 'react-router-dom';
+import ProfileDoctor from './doctor_profile';
+import { useNavigate } from 'react-router-dom'
+
 const Team = () => {
+  const navigate = useNavigate();
+  const navigateDoctorProfile = (doctor) => {
+    navigate('/ProfileDoctor', { state: { doctor: doctor } });
+  }
+
   const [doctorsData, setDoctorsData] = useState([]);
   const [selectedDepartment, setSelectedDepartment] = useState('');
   const [selectedAddress, setSelectedAddress] = useState('');
@@ -23,6 +32,7 @@ const Team = () => {
   const handleDepartmentChange = (e) => {
     setSelectedDepartment(e.target.value);
   };
+
 
   const handleAddressChange = (e) => {
     setSelectedAddress(e.target.value);
@@ -64,6 +74,11 @@ const Team = () => {
     return true;
   });
 
+  const handleViewProfile = (doctorName) => {
+
+    navigate(`/ProfileDoctor/${doctorName}`);
+  };
+
   return (
     <div>
       <Navbar />
@@ -88,7 +103,9 @@ const Team = () => {
             onChange={handleAddressChange}
           >
             <option value="">Address</option>
-            <option value="Assiut, Almazah, Heliopolis, Egypt">Assiut, Almazah, Heliopolis, Egypt</option>
+
+            <option value="Assiut">Assiut</option>
+
             <option value="Address 2">Address 2</option>
             <option value="Address 3">Address 3</option>
           </select>
@@ -106,6 +123,8 @@ const Team = () => {
         <div className="container">
           <div className="row g-5">
             {filteredDoctors.map(doctor => (
+    
+
               <div key={doctor.id} className="col-lg-6 team-item">
                 <div className="row g-0 bg-light rounded overflow-hidden">
                   <div className="col-12 col-sm-5 h-100">
@@ -121,9 +140,16 @@ const Team = () => {
                   </div>
                   <div className="col-12 col-sm-7 h-100 d-flex flex-column">
                     <div className="mt-auto p-4">
-                      <a href="/ProfileDoctor">
-                        <h3>{doctor.doctor_name}</h3>
-                      </a>
+
+                   
+                 
+                    <h3 onClick={
+                        () => navigateDoctorProfile(doctor)
+                      } style={{ cursor: 'pointer' }}>
+                        {doctor.doctor_name}
+                      </h3>
+
+
                       <h6 className="fw-normal fst-italic text-primary mb-4">{doctor.department}</h6>
                       <p className="m-0"></p>
                     </div>
