@@ -4,7 +4,7 @@ import React, { Component } from "react";
     render(){
         return(
             <div>
-<header>
+    <header>
         <div className="container">
             <a href="/" className="logo">
                 <img src="img/logo.jpeg" alt="Logo" />

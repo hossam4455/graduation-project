@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import Navbar from './navbar';
 import Footer from './footer';
 import './css/css.css';
-
+import { useNavigate } from 'react-router-dom';
 const MyForm = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     username: '',
     email: '',
@@ -31,13 +32,14 @@ const MyForm = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-
+    
     const loginData = {
       username: formData.username,
       password: formData.password,
     };
     const isUserSignedIn = () => {
       const token = localStorage.getItem('token');
+      
       return !!token; // Returns true if token exists, false otherwise
     };
     
@@ -69,6 +71,10 @@ const MyForm = () => {
         localStorage.setItem('id', id);
         localStorage.setItem('email', email);
 
+        navigate('/');
+        setTimeout(() => {
+          window.location.reload();
+          }, 1000);
 
         // You can save the token in local storage or state for future use
         // For example: localStorage.setItem('token', token);
@@ -107,6 +113,7 @@ const MyForm = () => {
           name="password"
           value={formData.password}
           onChange={handleChange}
+
           placeholder="Password"
         />
         <button type="submit">Login</button>
