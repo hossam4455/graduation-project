@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import Navbar from './navbar';
 import Footer from './footer';
 import './css/css.css';
+
 import { useNavigate } from 'react-router-dom';
 const MyForm = () => {
   const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     username: '',
     email: '',
@@ -29,6 +31,7 @@ const MyForm = () => {
       });
     }
   };
+
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -93,6 +96,7 @@ const MyForm = () => {
     // ...
 
   };
+
 
   return (
     <div>
