@@ -30,9 +30,10 @@ import Labform from './components/labform';
 import PharmNav from './components/navbarpharm';
 import RigisterPatient from './components/register_patient';
 import CreateAppointment from './components/appointment';
-import { BrowserRouter as Router,Routes ,Route } from 'react-router-dom';
 
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
+import { Routes  } from 'react-router-dom';
 
 class App extends Component{
   render(){
@@ -73,7 +74,10 @@ class App extends Component{
         <Route path='/CreateAppointment' Component={CreateAppointment}></Route>
 
         <Route path='/Login' Component={Login}></Route>
-
+       
+        <Route exact path="/" component={Team} />
+        <Route path="/ProfileDoctor/:doctorName" component={ProfileDoctor} />
+  
 
 
         
