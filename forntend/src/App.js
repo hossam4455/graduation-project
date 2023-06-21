@@ -15,13 +15,11 @@ import Testimonial from './components/testimonial';
 import Home2 from './components/home2';
 import Medicine from './components/medicine';
 import BuyNow from './components/buynow';
-import AddLab from './components/addlab';
+
 import HomeLAb from './components/home_lab';
-import Alborj from './components/alborj';
-import Alfa from './components/alfa';
-import Alfath from './components/alfath';
-import Almokhtabar from './components/almokhtbar';
-import Alshrook from './components/alshrook';
+
+
+
 import RoyalLab from './components/royal_lab';
 import DoctorDetails from './components/doctor_details';
 import ProfileDoctor from './components/doctor_profile';
@@ -57,13 +55,11 @@ class App extends Component{
           <Route path='/Home2' Component={Home2}></Route>
         <Route path='/BuyNow' Component={BuyNow}></Route>
         <Route path='/Medicine' Component={Medicine}></Route>
-        <Route path='/AddLab' Component={AddLab}></Route>
+      
         <Route path='/HomeLab' Component={HomeLAb}></Route>
-        <Route path='/Alborj' Component={Alborj}></Route>
-        <Route path='/Alfa' Component={Alfa}></Route>
-        <Route path='/Alfath' Component={Alfath}></Route>
-        <Route path='/Almokhtabar' Component={Almokhtabar}></Route>
-        <Route path='/Alshrook' Component={Alshrook}></Route>
+      
+     
+
         <Route path='/RoyalLab' Component={RoyalLab}></Route>
         <Route path='/DoctorDetails' Component={DoctorDetails}></Route>
         <Route path='/ProfileDoctor' Component={ProfileDoctor}></Route>
