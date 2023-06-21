@@ -57,7 +57,8 @@ INSTALLED_APPS = [
    
     "rest_framework.authtoken",
     "appointments",
-    'pharmacy'
+    "subscriptions",
+   
 
    
 
@@ -96,7 +97,7 @@ ROOT_URLCONF = 'CMS.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -249,6 +250,9 @@ REST_FRAMEWORK = {
 }
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
+STRIPE_PUBLIC_KEY = ""
+STRIPE_SECRET_KEY = "sk_test_51NKjmnILv3wZ5cABNiMBqT8gjxC55g1EOec9QrrSl6KSqch8znOvAJR2gaoycWGRAVQBAqkuHHHJSRxBNAy7FBvu00uMYjt43R"
+STRIPE_WEBHOOK_SECRET = ""
 
 LANGUAGE_CODE = 'en-us'
 
@@ -259,7 +263,7 @@ USE_I18N = True
 USE_TZ = True
 MEDIA_ROOT=os.path.join(BASE_DIR,"media")
 MEDIA_URL='/media/'
-
+CORS_ORIGIN_ALLOW_ALL = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/

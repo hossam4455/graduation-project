@@ -1,7 +1,6 @@
 from django.db import models
 from phone_field import PhoneField
 from address.models import AddressField
-from django.core.exceptions import ValidationError
 # Create your models here.
 class Doctor(models.Model):
     doctor_name=models.CharField(max_length=200,blank=True)
@@ -18,4 +17,4 @@ class Doctor(models.Model):
         if self.cost == None:pass
         else:
             if type(self.cost) == float and self.cost < 1:
-                raise ValidationError({"Cost": ('Please enter value more than zero'), })
+                raise ValidationError({"Cost": _('Please enter value more than zero'), })

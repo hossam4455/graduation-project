@@ -5,19 +5,21 @@ from .serializers import AppointmentSerializer
 from .models import Appointment
 from rest_framework import generics, permissions, serializers
 from rest_framework import generics
+from django.conf import settings
 
-class AppointmentView(generics.ListCreateAPIView):
-      queryset = Appointment.objects.all()
-      serializer_class = AppointmentSerializer
-# class AppointmentView(APIView):
-#     def get(self, request):
-#         appointments = Appointment.objects.all()
-#         serializer = AppointmentSerializer(appointments, many=True)
-#         return Response(serializer.data)
+
+# class AppointmentView(generics.ListCreateAPIView):
+#       queryset = Appointment.objects.all()
+#       serializer_class = AppointmentSerializer
+class AppointmentView(APIView):
+    def get(self, request):
+        appointments = Appointment.objects.all()
+        serializer = AppointmentSerializer(appointments, many=True)
+        return Response(serializer.data)
     
-#     def post(self, request):
-#         serializer = AppointmentSerializer(data=request.data)
-#         if serializer.is_valid():
-#             serializer.save()
-#             return Response(serializer.data, status=status.HTTP_201_CREATED)
-#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    def post(self, request):
+        serializer = AppointmentSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

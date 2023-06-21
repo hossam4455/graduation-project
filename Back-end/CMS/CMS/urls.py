@@ -18,16 +18,30 @@ from django.contrib import admin
 from django.urls import include, path
 from django.conf import settings
 from django.conf.urls.static import static
+
+from subscriptions.views import (
+    CancelView,
+    SuccessView,
+    stripe_webhook,
+)
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('doctor/', include('doctor.urls')),
     path('api-auth/', include('rest_framework.urls')),
     path('patient/', include('patient.urls')),
-    path('pharmacy/', include('pharmacy.urls')),
     path('api/', include('authentication.urls')),
     path(r'api/auth/', include('knox.urls')),
     path('users/', include('users.urls')),
     path('appointments/', include('appointments.urls')),
+    path("webhooks/stripe/", stripe_webhook, name="stripe_webhook"),
+    path("success/", SuccessView.as_view(), name="success"),
+    path("cancel/", CancelView.as_view(), name="cancel"),
+    path("subscriptions/", include("subscriptions.urls")),
+   
+
+  
+
 ]
 urlpatterns+=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
