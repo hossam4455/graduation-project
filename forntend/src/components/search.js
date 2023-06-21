@@ -47,31 +47,44 @@ const Team = () => {
       return (
         doctor.department === selectedDepartment &&
         doctor.address === selectedAddress &&
-        doctor.doctor_name.toLowerCase().includes(searchName.toLowerCase())
+        doctor.doctor_name.toLowerCase().includes(searchName.toLowerCase()) &&
+        doctor.role === 'doctor' // Add the condition to filter by role
       );
     } else if (selectedDepartment && selectedAddress) {
       return (
         doctor.department === selectedDepartment &&
-        doctor.address === selectedAddress
+        doctor.address === selectedAddress &&
+        doctor.role === 'doctor' // Add the condition to filter by role
       );
     } else if (selectedDepartment && searchName) {
       return (
         doctor.department === selectedDepartment &&
-        doctor.doctor_name.toLowerCase().includes(searchName.toLowerCase())
+        doctor.doctor_name.toLowerCase().includes(searchName.toLowerCase()) &&
+        doctor.role === 'doctor' // Add the condition to filter by role
       );
     } else if (selectedAddress && searchName) {
       return (
         doctor.address === selectedAddress &&
-        doctor.doctor_name.toLowerCase().includes(searchName.toLowerCase())
+        doctor.doctor_name.toLowerCase().includes(searchName.toLowerCase()) &&
+        doctor.role === 'doctor' // Add the condition to filter by role
       );
     } else if (selectedDepartment) {
-      return doctor.department === selectedDepartment;
+      return (
+        doctor.department === selectedDepartment &&
+        doctor.role === 'doctor' // Add the condition to filter by role
+      );
     } else if (selectedAddress) {
-      return doctor.address === selectedAddress;
+      return (
+        doctor.address === selectedAddress &&
+        doctor.role === 'doctor' // Add the condition to filter by role
+      );
     } else if (searchName) {
-      return doctor.doctor_name.toLowerCase().includes(searchName.toLowerCase());
+      return (
+        doctor.doctor_name.toLowerCase().includes(searchName.toLowerCase()) &&
+        doctor.role === 'doctor' // Add the condition to filter by role
+      );
     }
-    return true;
+    return doctor.role === 'doctor'; // Add the condition to filter by role
   });
 
   const handleViewProfile = (doctorName) => {
