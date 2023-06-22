@@ -16,8 +16,9 @@ const MyForm = () => {
 
     image: null,
     role: '',
+    bio:'',
   });
-
+  const [response, setResponse] = useState(null);
   const handleChange = (e) => {
     if (e.target.name === 'image') {
       setFormData({
@@ -47,6 +48,7 @@ const MyForm = () => {
     formDataToSend.append('address', formData.address);
     formDataToSend.append('image', formData.image);
     formDataToSend.append('role', formData.role);
+    formDataToSend.append('bio', formData.bio);
     fetch('http://127.0.0.1:8000/api/register', {
       method: 'POST',
       body: formDataToSend,
@@ -54,6 +56,7 @@ const MyForm = () => {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
+        setResponse(data);
       })
       .catch((error) => {
         console.error(error);
@@ -129,6 +132,14 @@ const MyForm = () => {
         onChange={handleChange}
         placeholder="Address"
       />
+       <label>bio:</label>
+          <input
+        type="text"
+        name="bio"
+        value={formData.bio}
+        onChange={handleChange}
+        placeholder="bio"
+      />
               <label>Role:</label>
         <select
           name="role"
@@ -150,6 +161,14 @@ const MyForm = () => {
       <br/>
      <a href='/Login'> <button type="submit">Add Doctor</button></a>
     </form>
+    {response && (
+        <div>
+          <h3>Response from Backend:</h3>
+          <p>Username: {response.username}</p>
+          <p>Email: {response.email}</p>
+          {/* Access other properties as needed */}
+        </div>
+      )}
     <Footer/>
     </div>
   );
