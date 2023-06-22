@@ -1,4 +1,5 @@
 import React, { Component ,useState } from "react";
+
 const email = localStorage.getItem('email');
 
     const Navbar = () => { 
@@ -94,11 +95,21 @@ const email = localStorage.getItem('email');
                           }
                         <div className="nav-item dropdown">
                             <a href="/Register" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Signup</a>
+                            
                             <div className="dropdown-menu m-0">
                                 <a href="/Register"className="dropdown-item">Doctor</a>
                                 <a href="/RigisterPatient" className="dropdown-item">Patient</a>   
                             </div>
                         </div>
+                        <a href="/Contact" className="nav-item nav-link">
+  <i className="bi bi-person" style={{ fontSize: '35px',color:"black" }}></i>
+</a>
+
+
+                       
+
+                       
+                      
                     </div>
                 </div>
             </nav>

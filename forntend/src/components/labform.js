@@ -1,32 +1,106 @@
 import React, { Component } from "react";
+import "../components/assets/css/style.css";
+import NavLab from "./navlab";
 
+class LabForm extends Component {
+  handleSubmit = (event) => {
+    event.preventDefault(); // Prevents the default form submission behavior
 
- class Labform extends Component{
-    render(){
-        return(
-            <div>
-                <div className="form">
+    // Access form data using the event.target object
+    const name = event.target.name.value;
+    const email = event.target.email.value;
+    const mobileNumber = event.target.mobileNumber.value;
+    const message = event.target.message.value;
 
-<div className="form-left">
-    <form action="post">
-        <label className="name-form" for="name lname">name :</label><br/>
-        <input type="text" className="fname" id="name" placeholder="first name" required/>
-        <input type="text" className="lname" id="lname" placeholder="last name" required/> <br/>
-        <label for="ph">phone</label><br/>
-        <input type="tel" className="phone-number" id="ph" placeholder="01146650211" required/> <br/>
-        <label for="em">email</label><br/>
-        <input type="text" className="email" id="em" placeholder="ayman2548@gmail.com" required/> <br/>
-        <label for="exp">Explain disease</label><br/>
-        <textarea name="" id="exp" cols="20" rows="5"></textarea>
-        <input type="submit" className="submit" value="send"/>
-    </form>
-</div>
-<div className="form-right">
-    <h2>Please enter your data </h2>
-    <p> So that we can communicate with you and learn about your medical condition and what type of medical
-        analysis you need</p>
-</div>
-</div>
+    // You can now use the captured form data for further processing (e.g., sending it to an API)
+
+    // Example: Log the form data to the console
+    console.log("Name:", name);
+    console.log("Email:", email);
+    console.log("Mobile Number:", mobileNumber);
+    console.log("Message:", message);
+
+    // Reset the form inputs after submission if needed
+    event.target.reset();
+  };
+
+  render() {
+    return (
+      <div>
+        <NavLab />
+        <section id="contact" className="contact-us-single">
+          <div className="row no-margin">
+            <div className="col-sm-6 cop-ck">
+              <form onSubmit={this.handleSubmit}>
+                <div className="row cf-ro">
+                  <div className="col-sm-3">
+                    <label>Enter Name :</label>
+                  </div>
+                  <div className="col-sm-8">
+                    <input
+                      type="text"
+                      placeholder="Enter Name"
+                      name="name"
+                      className="form-control input-sm"
+                    />
+                  </div>
+                </div>
+                <div className="row cf-ro">
+                  <div className="col-sm-3">
+                    <label>Email Address :</label>
+                  </div>
+                  <div className="col-sm-8">
+                    <input
+                      type="text"
+                      name="email"
+                      placeholder="Enter Email Address"
+                      className="form-control input-sm"
+                    />
+                  </div>
+                </div>
+                <div className="row cf-ro">
+                  <div className="col-sm-3">
+                    <label>Mobile Number:</label>
+                  </div>
+                  <div className="col-sm-8">
+                    <input
+                      type="text"
+                      name="mobileNumber"
+                      placeholder="Enter Mobile Number"
+                      className="form-control input-sm"
+                    />
+                  </div>
+                </div>
+                <div className="row cf-ro">
+                  <div className="col-sm-3">
+                    <label>Enter Message:</label>
+                  </div>
+                  <div className="col-sm-8">
+                    <textarea
+                      rows="5"
+                      name="message"
+                      placeholder="Enter Your Message"
+                      className="form-control input-sm"
+                    ></textarea>
+                  </div>
+                </div>
+                <div className="row cf-ro">
+                  <div className="col-sm-3">
+                    <label></label>
+                  </div>
+                  <div className="col-sm-8">
+                    <button className="btn btn-info btn-sm" type="submit">
+                      Send Message
+                    </button>
+                  </div>
+                </div>
+              </form>
             </div>
-        )}}
-export default Labform
+          </div>
+        </section>
+      </div>
+    );
+  }
+}
+
+export default LabForm;

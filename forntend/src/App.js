@@ -16,11 +16,11 @@ import Home2 from './components/home2';
 import Medicine from './components/medicine';
 import BuyNow from './components/buynow';
 
-import HomeLAb from './components/home_lab';
+import HomeLab from './components/Homelab';
 
 
 
-import RoyalLab from './components/royal_lab';
+
 import DoctorDetails from './components/doctor_details';
 import ProfileDoctor from './components/doctor_profile';
 import Labnav from './components/labnavbar';
@@ -57,11 +57,11 @@ class App extends Component{
         <Route path='/BuyNow' Component={BuyNow}></Route>
         <Route path='/Medicine' Component={Medicine}></Route>
       
-        <Route path='/HomeLab' Component={HomeLAb}></Route>
+        <Route path='/HomeLab' Component={ HomeLab}></Route>
       
      
 
-        <Route path='/RoyalLab' Component={RoyalLab}></Route>
+      
         <Route path='/DoctorDetails' Component={DoctorDetails}></Route>
         <Route path='/ProfileDoctor' Component={ProfileDoctor}></Route>
         <Route path='/Labnav' Component={Labnav}></Route>

@@ -1,24 +1,23 @@
-import React, {Component} from 'react';
-import PharmNav from './navbarpharm';
+import React from 'react';
 
-class Medicine extends Component{
-    render(){
-      return(
-<div>
-<body className="sub_page">
- 
-  
+import PharmNav2 from './pharmNav2';
 
-  
- {/*Start Navbar */}
+const YourComponent = () => {
+  const products = [
+    {
+      id: 1,
+      imgSrc: 'img/p-6.jpg',
+      name: 'Medicine',
+      price: 30,
+    },
+    // Add more product objects here as needed
+  ];
 
-<PharmNav/>
-{/*End Navbar */}
-
-
-
-
-  <div className="layout_padding-top">
+  return (
+    <div>
+      <PharmNav2/>
+{/*       start landing*/}
+       <div className="layout_padding-top">
     <section className="discount_section ">
       <div className="container-fluid ">
         <div className="row ">
@@ -49,156 +48,46 @@ class Medicine extends Component{
     </section>
 
   </div>
+{/*   end landing*/}
 
-  <section className="health_section layout_padding">
-    <div className="health_carousel-container">
-      <h2 className="text-uppercase">
-        Vitamins & Supplements
-      </h2>
-      <div className="carousel-wrap layout_padding2">
-        <div className='prod'> 
-          <div className="item">
-            <div className="box">
-              <div className="btn_container">
-                <a href="BuyNow">
-                  Buy Now
-                </a>
-              </div>
-              <div className="img-box">
-                <img src="img/p-6.jpg" alt=""/>
-              </div>
-              <div className="detail-box">
-                <div className="star_container">
-                  <i className="fa fa-star" aria-hidden="true"></i>
-                  <i className="fa fa-star" aria-hidden="true"></i>
-                  <i className="fa fa-star" aria-hidden="true"></i>
-                  <i className="fa fa-star" aria-hidden="true"></i>
-                  <i className="fa fa-star-o" aria-hidden="true"></i>
+       <div className="layout_padding-top">
+        <section className="discount_section ">
+          {/* ... */}
+        </section>
+      </div>
 
+      <section className="health_section layout_padding">
+        <div className="health_carousel-container">
+          <h2 className="text-uppercase">Vitamins & Supplements</h2>
+          <div className="carousel-wrap layout_padding2">
+            <div className="prod">
+              {products.map((product) => (
+                <div className="item" key={product.id}>
+                  <div className="box">
+                    <div className="btn_container">
+                      <a href="/BuyNow">Buy Now</a>
+                    </div>
+                    <div className="img-box">
+                      <img src={product.imgSrc} alt="" />
+                    </div>
+                    <div className="detail-box">
+                     
+                      <div className="text">
+                        <h6>{product.name}</h6>
+                        <h6 className="price">
+                          <span>$</span> {product.price}
+                        </h6>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div className="text">
-                  <h6>
-                    Medicine
-                  </h6>
-                  <h6 className="price">
-                    <span>
-                      $
-                    </span>
-                    30
-                  </h6>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="item">
-            <div className="box">
-              <div className="btn_container">
-                <a href="/BuyNow">
-                  Buy Now
-                </a>
-              </div>
-              <div className="img-box">
-                <img src="img/p-6.jpg" alt=""/>
-              </div>
-              <div className="detail-box">
-                <div className="star_container">
-                  <i className="fa fa-star" aria-hidden="true"></i>
-                  <i className="fa fa-star" aria-hidden="true"></i>
-                  <i className="fa fa-star" aria-hidden="true"></i>
-                  <i className="fa fa-star" aria-hidden="true"></i>
-                  <i className="fa fa-star-o" aria-hidden="true"></i>
-
-                </div>
-                <div className="text">
-                  <h6>
-                    Medicine
-                  </h6>
-                  <h6 className="price">
-                    <span>
-                      $
-                    </span>
-                    30
-                  </h6>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="item">
-            <div className="box">
-              <div className="btn_container">
-                <a href="/BuyNow">
-                  Buy Now
-                </a>
-              </div>
-              <div className="img-box">
-                <img src="img/p-6.jpg" alt=""/>
-              </div>
-              <div className="detail-box">
-                <div className="star_container">
-                  <i className="fa fa-star" aria-hidden="true"></i>
-                  <i className="fa fa-star" aria-hidden="true"></i>
-                  <i className="fa fa-star" aria-hidden="true"></i>
-                  <i className="fa fa-star" aria-hidden="true"></i>
-                  <i className="fa fa-star-o" aria-hidden="true"></i>
-
-                </div>
-                <div className="text">
-                  <h6>
-                    Medicine
-                  </h6>
-                  <h6 className="price">
-                    <span>
-                      $
-                    </span>
-                    30
-                  </h6>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="item">
-            <div className="box">
-              <div className="btn_container">
-                <a href="/BuyNow">
-                  Buy Now
-                </a>
-              </div>
-              <div className="img-box">
-                <img src="img/p-6.jpg" alt=""/>
-              </div>
-              <div className="detail-box">
-                <div className="star_container">
-                  <i className="fa fa-star" aria-hidden="true"></i>
-                  <i className="fa fa-star" aria-hidden="true"></i>
-                  <i className="fa fa-star" aria-hidden="true"></i>
-                  <i className="fa fa-star" aria-hidden="true"></i>
-                  <i className="fa fa-star-o" aria-hidden="true"></i>
-
-                </div>
-                <div className="text">
-                  <h6>
-                    Medicine
-                  </h6>
-                  <h6 className="price">
-                    <span>
-                      $
-                    </span>
-                    30
-                  </h6>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
-      </div>
-      </div>
+      </section>
+    </div>
+  );
+};
 
-  </section>
-
-
-
-</body>
-</div>
-)}
-}
-export default Medicine
+export default YourComponent;
