@@ -29,6 +29,7 @@ import PharmNav from './components/navbarpharm';
 import RigisterPatient from './components/register_patient';
 import CreateAppointment from './components/appointment';
 import PatientAppointments from './components/doctor_appointments'
+import ApprovementAppointments from './components/approvement'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import { Routes  } from 'react-router-dom';
@@ -69,13 +70,14 @@ class App extends Component{
         <Route path='/RigisterPatient' Component={RigisterPatient}></Route>
         <Route path='/CreateAppointment' Component={CreateAppointment}></Route>
         <Route path='/PatientAppointments' Component={PatientAppointments}></Route>
+        <Route path='/ApprovementAppointments' Component={ApprovementAppointments}></Route>
         <Route path='/Login' Component={Login}></Route>
        
         <Route exact path="/" component={Team} />
         <Route path="/ProfileDoctor/:doctorName" component={ProfileDoctor} />
   
 
-
+        
         
         </Routes>
       </Router>
