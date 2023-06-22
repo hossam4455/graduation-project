@@ -1,4 +1,3 @@
-
 import React, { Component ,useState } from "react";
 const email = localStorage.getItem('email');
 
@@ -19,7 +18,6 @@ const email = localStorage.getItem('email');
                 }, 1000);
         };
         
-
         return(
             <div>
 <div className="container-fluid py-2 border-bottom d-none d-lg-block">
@@ -83,7 +81,6 @@ const email = localStorage.getItem('email');
                             </div>
                         </div>
                         <a href="/Contact" className="nav-item nav-link">Contact</a>
-
                         {
                                     handleLoginBtn() ? ( 
                                         <a href="/Login" className="nav-item nav-link">Login</a>
@@ -95,7 +92,6 @@ const email = localStorage.getItem('email');
                                         >Logout</span>
                                     )
                           }
-
                         <div className="nav-item dropdown">
                             <a href="/Register" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Signup</a>
                             <div className="dropdown-menu m-0">

@@ -90,9 +90,7 @@
   .appointment button[type="submit"] {
     width: 100%;
     padding: 10px;
-
-    background-color: #13C5DD;
-
+    background-color: #4CAF50;
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -100,8 +98,6 @@
   }
   
   .appointment button[type="submit"]:hover {
-
-    background-color:#13C5DD;
-
+    background-color: #45a049;
   }
   

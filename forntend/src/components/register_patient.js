@@ -1,19 +1,14 @@
-
 import React, { useState } from 'react';
-
 import Navbar from './navbar';
 import Footer from './footer';
 import './css/css.css';
 
-
 const MyForm = () => {
-
   const [formData, setFormData] = useState({
     username: '',
     email: '',
     password1: '',
     password2: '',
-
     doctor_name: '',
     department: '',
     cost: '',
@@ -22,7 +17,6 @@ const MyForm = () => {
     image: null,
     role: '',
   });
-
 
   const handleChange = (e) => {
     if (e.target.name === 'image') {
@@ -40,16 +34,13 @@ const MyForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     console.log(formData);
-
 
     const formDataToSend = new FormData();
     formDataToSend.append('username', formData.username);
     formDataToSend.append('email', formData.email);
     formDataToSend.append('password1', formData.password1);
     formDataToSend.append('password2', formData.password2);
-
     formDataToSend.append('doctor_name', formData.doctor_name);
     formDataToSend.append('department', formData.department);
     formDataToSend.append('cost', formData.cost);
@@ -66,14 +57,12 @@ const MyForm = () => {
       })
       .catch((error) => {
         console.error(error);
-
       });
   };
 
   return (
     <div>
       <Navbar />
-
 
       <form onSubmit={handleSubmit} className='formone'>
         <label>Username:</label>
@@ -108,7 +97,6 @@ const MyForm = () => {
           onChange={handleChange}
           placeholder="Confirm Password"
         />
-
              <label>Name:</label>
       <input
         type="text"
@@ -149,11 +137,8 @@ const MyForm = () => {
      <a href='/Login'> <button type="submit">Add Doctor</button></a>
     </form>
     <Footer/>
-
     </div>
   );
 };
 
-
 export default MyForm;
-

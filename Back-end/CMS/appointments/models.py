@@ -15,3 +15,6 @@ class Appointment(models.Model):
         limit_choices_to={'role': 'patient'}
     )
     appointment_datetime = models.DateTimeField()
+
+    def __str__(self):
+        return self.doctor.doctor_name

@@ -16,26 +16,19 @@ import Home2 from './components/home2';
 import Medicine from './components/medicine';
 import BuyNow from './components/buynow';
 
-=======
-
 import HomeLAb from './components/home_lab';
 
 
 
-
+import RoyalLab from './components/royal_lab';
 import DoctorDetails from './components/doctor_details';
 import ProfileDoctor from './components/doctor_profile';
-
-import HomeLab from './components/Homelab';
-import NavLab from './components/navlab';
+import Labnav from './components/labnavbar';
+import Labform from './components/labform';
 import PharmNav from './components/navbarpharm';
 import RigisterPatient from './components/register_patient';
 import CreateAppointment from './components/appointment';
-
-import CreateAppointment2 from './components/appointment_home';
-import { BrowserRouter as Router,Routes ,Route } from 'react-router-dom';
-
-
+import PatientAppointments from './components/doctor_appointments'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import { Routes  } from 'react-router-dom';
@@ -62,16 +55,25 @@ class App extends Component{
           <Route path='/Home2' Component={Home2}></Route>
         <Route path='/BuyNow' Component={BuyNow}></Route>
         <Route path='/Medicine' Component={Medicine}></Route>
+      
+        <Route path='/HomeLab' Component={HomeLAb}></Route>
+      
+     
 
+        <Route path='/RoyalLab' Component={RoyalLab}></Route>
+        <Route path='/DoctorDetails' Component={DoctorDetails}></Route>
+        <Route path='/ProfileDoctor' Component={ProfileDoctor}></Route>
+        <Route path='/Labnav' Component={Labnav}></Route>
+        <Route path='/Labform' Component={Labform}></Route>
         <Route path='/PharmNav' Component={PharmNav}></Route>
         <Route path='/RigisterPatient' Component={RigisterPatient}></Route>
         <Route path='/CreateAppointment' Component={CreateAppointment}></Route>
-        <Route path='/CreateAppointment2' Component={CreateAppointment2}></Route>
-
+        <Route path='/PatientAppointments' Component={PatientAppointments}></Route>
         <Route path='/Login' Component={Login}></Route>
-        <Route path='/NavLab' Component={NavLab}></Route>
-        <Route path='/HomeLab' Component={HomeLab}></Route>
-        <Route path='/LabForm' Component={LabForm}></Route>
+       
+        <Route exact path="/" component={Team} />
+        <Route path="/ProfileDoctor/:doctorName" component={ProfileDoctor} />
+  
 
 
         
