@@ -31,7 +31,7 @@ import CreateAppointment from './components/appointment';
 import PatientAppointments from './components/doctor_appointments'
 import ApprovementAppointments from './components/approvement'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-
+import ViewPorfile from './components/viewprofile';
 import { Routes  } from 'react-router-dom';
 
 class App extends Component{
@@ -71,6 +71,8 @@ class App extends Component{
         <Route path='/CreateAppointment' Component={CreateAppointment}></Route>
         <Route path='/PatientAppointments' Component={PatientAppointments}></Route>
         <Route path='/ApprovementAppointments' Component={ApprovementAppointments}></Route>
+        <Route path='/ViewPorfile' Component={ViewPorfile}></Route>
+        
         <Route path='/Login' Component={Login}></Route>
        
         <Route exact path="/" component={Team} />
