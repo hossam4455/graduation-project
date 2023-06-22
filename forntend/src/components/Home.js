@@ -17,6 +17,7 @@ import Footer from "./footer";
                     <div className="pt-2">
                         <a href="/Search" className="btn btn-light rounded-pill py-md-3 px-md-5 mx-2">Find Doctor</a>
                         <a href="/Appointment" className="btn btn-outline-light rounded-pill py-md-3 px-md-5 mx-2">Appointment</a>
+                        <a href="/PatientAppointments" className="btn btn-outline-light rounded-pill py-md-3 px-md-5 mx-2">View Appointment</a>
                     </div>
                 </div>
             </div>

@@ -3,6 +3,7 @@ import Navbar from './navbar';
 import Footer from './footer';
 import './css/css.css';
 
+
 const UpdateForm = () => {
   const [formData, setFormData] = useState({
     username: '',
@@ -15,6 +16,7 @@ const UpdateForm = () => {
     address: '',
     image: null,
   });
+  
   const id = localStorage.getItem('id')
    
   const url="http://127.0.0.1:8000/users/"+id+"/"
