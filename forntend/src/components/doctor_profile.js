@@ -3,6 +3,7 @@ import Navbar from "./navbar";
 import Footer from "./footer";
 import './css/style5.css';
 import { useLocation } from "react-router-dom";
+import { render } from "@testing-library/react";
 
 const ProfileDoctor = (props) => {
     const location = useLocation(); 
@@ -10,8 +11,9 @@ const ProfileDoctor = (props) => {
     console.log(doctor);
 
     
-            return(
+        return(
                 <div>
+                   
      <Navbar/>
      <div className="prcontainer">
             <div className="box">
@@ -75,4 +77,4 @@ const ProfileDoctor = (props) => {
      
             )}
 
-export default ProfileDoctor
+export default ProfileDoctor
