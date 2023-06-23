@@ -6,6 +6,7 @@ import './css/style5.css';
 
 const ViewProfile = (props) => {
   const [filteredUser, setFilteredUser] = useState(null);
+  const token = localStorage.getItem('token');
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -65,9 +66,9 @@ const ViewProfile = (props) => {
           </ul>
           <br/>
           <br/>
-          <Link to="/DoctorDetails" className="edit-profile-button">
-            Edit Profile
-          </Link>
+          <div className="edit-profile-button">
+            <Link to="/DoctorDetails">Edit Profile</Link>
+          </div>
         </div>
         <div className="About">
           <ul>
@@ -93,6 +94,18 @@ const ViewProfile = (props) => {
             <h3>Contact</h3>
             <li>{filteredUser?.email}</li>
           </ul>
+          <div className="profile-buttons">
+            {token && (
+              <Link to="/PatientAppointments" className="view-appointments-button top-right">
+                View Appointments
+              </Link>
+            )}
+            {token && filteredUser?.role !== "patient" && (
+              <Link to="/ApprovementAppointments" className="view-approvals-button bottom">
+                View Approvals
+              </Link>
+            )}
+          </div>
         </div>
       </div>
       <Footer />
