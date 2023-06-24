@@ -9,9 +9,14 @@ from users.models import CustomUser
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustomUser
-        fields = ('id', 'username', 'email')
+        fields = ('id', 'username', 'email','is_verified','password')
 
-
+class VerifyAccountSerializer(serializers.Serializer):
+    email = serializers.EmailField()
+    otp = serializers.CharField()
+    
+    
+        
 class RegisterSerializer(serializers.ModelSerializer):
 
     class Meta:

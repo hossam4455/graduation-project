@@ -250,6 +250,17 @@ REST_FRAMEWORK = {
 }
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
+# settings.py
+
+# Email settings
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'  # Backend for sending emails
+EMAIL_HOST = 'smtp.gmail.com'  # SMTP server host for outgoing emails
+EMAIL_PORT = 587  # SMTP server port for outgoing emails
+EMAIL_HOST_USER = 'hossam.hssan47777@gmail.com'  # Sender's email address
+EMAIL_HOST_PASSWORD = 'msiillulsxzrmhmp'  # Sender's email password
+EMAIL_USE_TLS = True  # Use TLS encryption for secure connection with the email server
+ALLOWED_HOSTS=[]  # Default sender's email address for all outgoing emails
+
 STRIPE_PUBLIC_KEY = ""
 STRIPE_SECRET_KEY = "sk_test_51NKjmnILv3wZ5cABNiMBqT8gjxC55g1EOec9QrrSl6KSqch8znOvAJR2gaoycWGRAVQBAqkuHHHJSRxBNAy7FBvu00uMYjt43R"
 STRIPE_WEBHOOK_SECRET = ""

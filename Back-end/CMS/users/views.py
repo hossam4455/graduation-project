@@ -7,6 +7,7 @@ from .serializers import UserSerializer
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication
+
 class UserApi(APIView):
     
     permission_classes = [IsAuthenticated]

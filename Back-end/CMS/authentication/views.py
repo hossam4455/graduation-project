@@ -13,7 +13,7 @@ from knox.views import LoginView as KnoxLoginView
 from knox.models import AuthToken
 from rest_framework.authentication import BasicAuthentication
 from rest_framework.authtoken.serializers import AuthTokenSerializer
-from .serializers import  RegisterSerializer, LoginSerializer,UserSerializer,sigSerializer
+from .serializers import  RegisterSerializer, LoginSerializer,UserSerializer,sigSerializer,VerifyAccountSerializer
 from knox.auth import TokenAuthentication
 from .models import User
 from django.utils import timezone
@@ -27,32 +27,77 @@ from users.models import CustomUser
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.mail import send_mail
 from django.conf import settings
+from rest_framework.response import Response
+from .emails import *
 # Create your views here.
-class RegisterViewSendMail(APIView):
-   def post(self, request):
-       serializer = UserSerializer(data=request.data)
-       serializer.is_valid(raise_exception=True)
-       serializer.save()
-       CustomUser = serializer.validated_data["CustomUser"]
-       CustomUser.is_active = False
-       CustomUser.save()
-       send_mail(
-            "worklog.click (email verfication)",
-            str(settings.WEB_ROOT_URL) + "/authentication/activation/" + str(CustomUser.uuid) + "/",
-            settings.EMAIL_HOST_USER,
-            [CustomUser.email],
-        )
-       return Response(
-            {
-                "user": UserSerializer(CustomUser, context=self.get_serializer_context()).data,
-            }
-        )
 
-       return Response(serializer.data)
 
+class RegisterAPI(APIView):
+    def post(self, request):
+        try:
+            data = request.data
+            serializer = RegisterSerializer(data=data)
+            if serializer.is_valid():
+                serializer.save()
+                send_otp_via_email(serializer.data['email'])
+                return Response({
+                    'status': 200,
+                    'message': "registration successful, check mail",
+                    'data': serializer.data
+                })
+            return Response({
+                'status': 400,
+                'message': "FAILED",
+                'data': serializer.errors
+            })
+        except Exception as e:
+            print(e)
+
+
+class VerifyOTP(APIView):
+    def post(self, request):
+        try:
+            data = request.data
+            serializer = VerifyAccountSerializer(data=data)
+
+            if serializer.is_valid():
+                email = serializer.data['email']
+                otp = serializer.data['otp']
+                user = CustomUser.objects.filter(email=email)
+                if not user.exists():
+                    return Response({
+                        'status': 400,
+                        'message': "FAILED",
+                        'data': 'invalid email'
+                    })
+
+                if not user[0].otp == otp:
+                    return Response({
+                        'status': 400,
+                        'message': "FAILED",
+                        'data': 'invalid OTP'
+                    })
+
+                user = user.first()
+                user.is_verified = True
+                user.save()
+
+                return Response({
+                    'status': 200,
+                    'message': 'account verified',
+                    'data': {}
+                })
+
+        except Exception as e:
+            print(e)
+        
+        
 class RegisterView(generics.ListCreateAPIView):
       queryset = CustomUser.objects.all()
       serializer_class = RegisterSerializer
+
+
+
 class SignInAPI(generics.GenericAPIView):
     serializer_class = LoginSerializer
   
@@ -60,6 +105,14 @@ class SignInAPI(generics.GenericAPIView):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         user = serializer.validated_data
+        
+        if not user.is_verified:
+            return Response({
+                'status': 400,
+                'message': "FAILED",
+                'data': 'User is not verified'
+            })
+        
         token = "!!!!"
         try:
             token = Token.objects.get(user_id=user.id)
@@ -69,8 +122,8 @@ class SignInAPI(generics.GenericAPIView):
         return Response({
             "user": sigSerializer(user).data,
             "token": str(token),
-        
         })
+
 class EmailActivation(APIView):
     serializer_class = None
     permission_classes = (permissions.AllowAny,)

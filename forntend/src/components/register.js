@@ -49,7 +49,7 @@ const MyForm = () => {
     formDataToSend.append('image', formData.image);
     formDataToSend.append('role', formData.role);
     formDataToSend.append('bio', formData.bio);
-    fetch('http://127.0.0.1:8000/api/register', {
+    fetch('http://127.0.0.1:8000/api/registerotp', {
       method: 'POST',
       body: formDataToSend,
     })
@@ -57,12 +57,23 @@ const MyForm = () => {
       .then((data) => {
         console.log(data);
         setResponse(data);
+        
+     
+         
+      
       })
       .catch((error) => {
         console.error(error);
       });
   };
-
+  const redirectToVerificationPage = () => {
+    window.location.href = '/VerificationPage';
+    }
+    const handleButtonClick = (e) => {
+      e.preventDefault();
+      handleSubmit(e); // Call the first function and pass the event object
+      redirectToVerificationPage(); // Call the second function
+    };
   return (
     <div>
       <Navbar />
@@ -159,7 +170,9 @@ const MyForm = () => {
         onChange={handleChange}
       />
       <br/>
-     <a href='/Login'> <button type="submit">Add Doctor</button></a>
+      <button type="submit" onClick={handleButtonClick}>
+  Add Doctor
+</button>
     </form>
     {response && (
         <div>

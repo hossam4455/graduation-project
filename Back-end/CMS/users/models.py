@@ -22,6 +22,8 @@ class CustomUser(AbstractUser):
     cost = models.FloatField(blank=True,null=True)
     image = models.ImageField(null=False,blank= True)
     address= models.CharField("Address line 1",max_length=1024,)
+    otp=models.CharField(max_length=6,null=True,blank=True);
+    is_verified=models.BooleanField(default=False);
     def __str__(self):
      return str(self.username)
     USERNAME_FIELD = 'username'

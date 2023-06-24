@@ -33,7 +33,7 @@ import ApprovementAppointments from './components/approvement'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import ViewPorfile from './components/viewprofile';
 import { Routes  } from 'react-router-dom';
-
+import VerificationPage from './components/verifyotp'
 class App extends Component{
   render(){
     return(
@@ -72,6 +72,7 @@ class App extends Component{
         <Route path='/PatientAppointments' Component={PatientAppointments}></Route>
         <Route path='/ApprovementAppointments' Component={ApprovementAppointments}></Route>
         <Route path='/ViewPorfile' Component={ViewPorfile}></Route>
+        <Route path='/VerificationPage' Component={VerificationPage}></Route>
         
         <Route path='/Login' Component={Login}></Route>
        
