@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import  './css/verifyotp.css';
+import Navbar from "./navbar";
+import Footer from "./footer";
 const VerificationPage = () => {
   const [email, setEmail] = useState('');
   const [otp, setOtp] = useState('');
@@ -33,6 +35,8 @@ const VerificationPage = () => {
   };
 
   return (
+    <div>
+    <Navbar/>
     <div className="verification-container">
       <h1>Account Verification</h1>
       <form onSubmit={handleSubmit} className="verification-form">
@@ -60,6 +64,8 @@ const VerificationPage = () => {
           Verify
         </button>
       </form>
+    </div>
+    <Footer/>
     </div>
   );
 };

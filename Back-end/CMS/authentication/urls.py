@@ -9,5 +9,4 @@ urlpatterns = [
     path('registerotp', RegisterAPI.as_view()),
     path("verify/", VerifyOTP.as_view(), name="activation"),
 
-  
 ]

@@ -9,6 +9,8 @@ from django.conf import settings
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication
+from .models import Feedback
+from .serializers import FeedbackSerializer
 
 # class AppointmentView(generics.ListCreateAPIView):
 #       queryset = Appointment.objects.all()
@@ -52,3 +54,15 @@ class AppointmentDetailView(generics.RetrieveDestroyAPIView):
     serializer_class = AppointmentSerializer
     permission_classes = [IsAuthenticated]
     authentication_classes = [TokenAuthentication]
+    
+    
+class FeedbackAPI(generics.CreateAPIView):
+    queryset = Feedback.objects.all()
+    serializer_class = FeedbackSerializer
+
+    def post(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

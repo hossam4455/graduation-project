@@ -10,4 +10,11 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustomUser
         fields = ('id', 'username', 'email','bio','doctor_name','department','cost','address','image','password1', 'password2')
-    
+
+
+from .models import Feedback
+
+class FeedbackSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Feedback
+        fields = ['id', 'doctor', 'patient', 'rating', 'comment']

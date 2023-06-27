@@ -2,6 +2,7 @@ import React, { Component, useState } from "react";
 import Navbar from "./navbar";
 import Footer from "./footer";
 import './css/style5.css';
+
 import { useLocation } from "react-router-dom";
 
 const ProfileDoctor = (props) => {

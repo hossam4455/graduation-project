@@ -139,5 +139,3 @@ class EmailActivation(APIView):
         return HttpResponse(status=200)
 
 
-class ActivationSuccessView(TemplateView):
-    template_name = "activationsuccess.html"

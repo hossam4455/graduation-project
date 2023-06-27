@@ -30,4 +30,22 @@ class CustomUser(AbstractUser):
     REQUIRED_FIELDS = []
     
 
- 
+class Feedback(models.Model):
+    doctor = models.ForeignKey(
+        CustomUser,
+        on_delete=models.CASCADE,
+        related_name='doctor_fedback',
+        limit_choices_to={'role': 'doctor'}
+    )
+    patient = models.ForeignKey(
+        CustomUser,
+        on_delete=models.CASCADE,
+        related_name='patient_feedback',
+        limit_choices_to={'role': 'patient'}
+    )
+   
+    rating = models.IntegerField(choices=[(i, str(i)) for i in range(1, 6)])
+    comment = models.TextField()
+
+    def __str__(self):
+        return f"Feedback for {self.doctor} by {self.patient}"

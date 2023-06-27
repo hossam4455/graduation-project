@@ -34,6 +34,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import ViewPorfile from './components/viewprofile';
 import { Routes  } from 'react-router-dom';
 import VerificationPage from './components/verifyotp'
+import FeedbackForm from './components/feedback'
 class App extends Component{
   render(){
     return(
@@ -73,6 +74,7 @@ class App extends Component{
         <Route path='/ApprovementAppointments' Component={ApprovementAppointments}></Route>
         <Route path='/ViewPorfile' Component={ViewPorfile}></Route>
         <Route path='/VerificationPage' Component={VerificationPage}></Route>
+        <Route path='/FeedbackForm' Component={FeedbackForm}></Route>
         
         <Route path='/Login' Component={Login}></Route>
        

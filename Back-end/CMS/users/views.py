@@ -7,6 +7,16 @@ from .serializers import UserSerializer
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication
+from django.http import JsonResponse
+from django.views import View
+
+from .models import CustomUser
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+from .models import Feedback
+from .serializers import FeedbackSerializer
+from django.shortcuts import get_object_or_404
 
 class UserApi(APIView):
     
@@ -44,58 +54,33 @@ class UserApi(APIView):
                 return Response("Invalid Data!", status=400)
         except CustomUser.DoesNotExist:
             return Response("User Not Found!", status=404)
+class FeedbackListView(APIView):
+    def get(self, request):
+        feedbacks = Feedback.objects.all()
+        serializer = FeedbackSerializer(feedbacks, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    def post(self, request):
+        serializer = FeedbackSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+class FeedbackDetailView(APIView):
+    def get(self, request, feedback_id):
+        feedback = get_object_or_404(Feedback, pk=feedback_id)
+        serializer = FeedbackSerializer(feedback)
+        return Response(serializer.data)
 
-# from dateutil.relativedelta import relativedelta
-# from django.conf import settings
+    def put(self, request, feedback_id):
+        feedback = get_object_or_404(Feedback, pk=feedback_id)
+        serializer = FeedbackSerializer(feedback, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-# def send_mail_func(user):
-#     if settings.EMAIL_HOST_USER:
-#         host_mail = f'name site <{settings.EMAIL_HOST_USER}>'
-#     else:
-#         host_mail = f'localServer <Admin@localServer.com>'
-
-#     mail_subject = "Hi! Artis"
-#     message = "please create album to get more followers"
-#     user.email_user(mail_subject, message,  host_mail) 
-
-
-
-
-
-# def check_between_two_dates(check_date):
-#     current_date = datetime.datetime.now().date()
-
-#     add_days = check_date + relativedelta(months=1)
-#     if add_days < current_date:
-#         return False
-
-#     return True
-
-# def check_albums(): 
-
-#     # context = {
-#     #     'test':1
-#     # }
-
-#     check_all_users = CustomUser.objects.all()
-#     if not check_all_users:
-#             # return HttpResponse(context, status=status.HTTP_201_CREATED)
-#             return
-
-
-#     for user in check_all_users:
-
-#         if not user.artist.artist_album.all():
-            
-#             continue
-
-#         last_album = user.artist.artist_album.all()[0]
-#         check = check_between_two_dates(last_album.check_date)
-#         if not check:
-
-#             send_mail_func(user)
-#             last_album.check_date = datetime.datetime.now().date()
-#             last_album.save()
-#     # return HttpResponse(context, status=status.HTTP_201_CREATED)
-#     return
+    def delete(self, request, feedback_id):
+        feedback = get_object_or_404(Feedback, pk=feedback_id)
+        feedback.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)

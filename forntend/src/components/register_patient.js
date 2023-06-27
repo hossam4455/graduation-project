@@ -16,8 +16,9 @@ const MyForm = () => {
 
     image: null,
     role: '',
+    bio:'',
   });
-
+  const [response, setResponse] = useState(null);
   const handleChange = (e) => {
     if (e.target.name === 'image') {
       setFormData({
@@ -47,19 +48,32 @@ const MyForm = () => {
     formDataToSend.append('address', formData.address);
     formDataToSend.append('image', formData.image);
     formDataToSend.append('role', formData.role);
-    fetch('http://127.0.0.1:8000/api/register', {
+    formDataToSend.append('bio', formData.bio);
+    fetch('http://127.0.0.1:8000/api/registerotp', {
       method: 'POST',
       body: formDataToSend,
     })
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
+        setResponse(data);
+        
+     
+         
+      
       })
       .catch((error) => {
         console.error(error);
       });
   };
-
+  const redirectToVerificationPage = () => {
+    window.location.href = '/VerificationPage';
+    }
+    const handleButtonClick = (e) => {
+      e.preventDefault();
+      handleSubmit(e); // Call the first function and pass the event object
+      redirectToVerificationPage(); // Call the second function
+    };
   return (
     <div>
       <Navbar />
@@ -105,8 +119,22 @@ const MyForm = () => {
         onChange={handleChange}
         placeholder="Name"
       />
- 
-     
+      <label>Department:</label>
+      <input
+        type="text"
+        name="department"
+        value={formData.department}
+        onChange={handleChange}
+        placeholder="Department"
+      />
+      <label>Cost:</label>
+      <input
+        type="text"
+        name="cost"
+        value={formData.cost}
+        onChange={handleChange}
+        placeholder="Cost"
+      />
       <label>Address:</label>
       <input
         type="text"
@@ -114,6 +142,14 @@ const MyForm = () => {
         value={formData.address}
         onChange={handleChange}
         placeholder="Address"
+      />
+       <label>bio:</label>
+          <input
+        type="text"
+        name="bio"
+        value={formData.bio}
+        onChange={handleChange}
+        placeholder="bio"
       />
               <label>Role:</label>
         <select
@@ -134,8 +170,18 @@ const MyForm = () => {
         onChange={handleChange}
       />
       <br/>
-     <a href='/Login'> <button type="submit">Add Doctor</button></a>
+      <button type="submit" onClick={handleButtonClick}>
+  Add Doctor
+</button>
     </form>
+    {response && (
+        <div>
+          <h3>Response from Backend:</h3>
+          <p>Username: {response.username}</p>
+          <p>Email: {response.email}</p>
+          {/* Access other properties as needed */}
+        </div>
+      )}
     <Footer/>
     </div>
   );
