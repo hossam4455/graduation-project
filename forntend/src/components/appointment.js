@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './navbar';
 import Footer from './footer';
+import axios from 'axios';
+
 const CreateAppointment = () => {
-    const storedUserId = localStorage.getItem('id');
+  const storedUserId = localStorage.getItem('id');
   const [formData, setFormData] = useState({
     doctor: '',
     patient: storedUserId,
@@ -10,26 +12,20 @@ const CreateAppointment = () => {
   });
 
   const [doctors, setDoctors] = useState([]);
-  const [patients, setPatients] = useState([]);
+  const [error, setError] = useState('');
 
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/api/register')
-      .then(response => response.json())
-      .then(data => {
-        setDoctors(data);
-      })
-      .catch(error => {
-        console.error(error);
-      });
+    const fetchDoctors = async () => {
+      try {
+        const response = await axios.get('http://127.0.0.1:8000/api/register');
+        const filteredDoctors = response.data.filter(doctor => doctor.role === 'doctor');
+        setDoctors(filteredDoctors);
+      } catch (error) {
+        setError('Failed to fetch doctors.');
+      }
+    };
 
-    fetch('http://127.0.0.1:8000/api/register')
-      .then(response => response.json())
-      .then(data => {
-        setPatients(data);
-      })
-      .catch(error => {
-        console.error(error);
-      });
+    fetchDoctors();
   }, []);
 
   const handleInputChange = (e) => {
@@ -61,7 +57,7 @@ const CreateAppointment = () => {
       <Navbar/>
       
       <form onSubmit={handleSubmit} className='appointment'>
-      <h1>Create Appointment</h1>
+        <h1>Create Appointment</h1>
       
         <label htmlFor="doctor">Doctor:</label>
         <select id="doctor" name="doctor" onChange={handleInputChange}>

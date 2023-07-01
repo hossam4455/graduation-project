@@ -1,5 +1,4 @@
 from django.db import models
-from phone_field import PhoneField
 from address.models import AddressField
 # Create your models here.
 class Doctor(models.Model):

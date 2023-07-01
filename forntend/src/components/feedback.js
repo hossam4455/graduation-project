@@ -1,28 +1,48 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './css/feedback.css';
-
+import Navbar from "./navbar";
+import Footer from "./footer";
 const FeedbackForm = () => {
-  const [doctorId, setDoctorId] = useState('');
-  const [patientId, setPatientId] = useState('');
+  const [doctors, setDoctors] = useState([]);
+  const [selectedDoctor, setSelectedDoctor] = useState('');
   const [rating, setRating] = useState('');
   const [comment, setComment] = useState('');
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState('');
+  const [patientId, setPatientId] = useState('');
+
+  useEffect(() => {
+    // Retrieve the patient ID from local storage when the component mounts
+    const storedPatientId = localStorage.getItem('id');
+    setPatientId(storedPatientId);
+
+    // Fetch the list of doctors with role "doctor"
+    const fetchDoctors = async () => {
+      try {
+        const response = await axios.get('http://127.0.0.1:8000/api/register');
+        const filteredDoctors = response.data.filter((doctor) => doctor.role === 'doctor');
+        setDoctors(filteredDoctors);
+      } catch (error) {
+        setError('Failed to fetch doctors.');
+      }
+    };
+
+    fetchDoctors();
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
       const response = await axios.post('http://127.0.0.1:8000/users/feedbacks/', {
-        doctor: parseInt(doctorId),
+        doctor: parseInt(selectedDoctor),
         patient: parseInt(patientId),
         rating: parseInt(rating),
         comment: comment,
       });
       setSuccess(true);
-      setDoctorId('');
-      setPatientId('');
+      setSelectedDoctor('');
       setRating('');
       setComment('');
     } catch (error) {
@@ -32,20 +52,27 @@ const FeedbackForm = () => {
 
   return (
     <div>
+           <Navbar/>
       <h1>Give Feedback</h1>
       {success && <p>Feedback submitted successfully!</p>}
       {error && <p>{error}</p>}
       <form onSubmit={handleSubmit}>
         <label>
-          Doctor ID:
-          <input type="number" value={doctorId} onChange={(e) => setDoctorId(e.target.value)} />
+          Select Doctor:
+          <select
+            value={selectedDoctor}
+            onChange={(e) => setSelectedDoctor(e.target.value)}
+            className="doctor-select"
+          >
+            <option value="">Select Doctor</option>
+            {doctors.map((doctor) => (
+              <option key={doctor.id} value={doctor.id}>
+                {doctor.doctor_name}
+              </option>
+            ))}
+          </select>
         </label>
-        <br />
-        <label>
-          Patient ID:
-          <input type="number" value={patientId} onChange={(e) => setPatientId(e.target.value)} />
-        </label>
-        <br />
+
         <label>
           Rating:
           <select value={rating} onChange={(e) => setRating(e.target.value)}>
@@ -65,6 +92,7 @@ const FeedbackForm = () => {
         <br />
         <button type="submit">Submit</button>
       </form>
+      <Footer/>
     </div>
   );
 };

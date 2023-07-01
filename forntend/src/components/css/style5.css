@@ -151,3 +151,45 @@
   border-radius: 4px;
   font-size: 14px;
 }
+/* style5.css */
+
+/* ...existing styles... */
+
+/* style5.css */
+
+/* ...existing styles... */
+
+.feedback-item {
+  background-color: #f2f2f2;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.feedback-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.patient-name {
+  font-weight: bold;
+  color: #333; /* Add a suitable color for the patient name */
+}
+
+.feedback-text {
+  margin-top: 5px;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.rating-label {
+  margin-right: 5px;
+  font-weight: bold;
+}
+
+.star-icon {
+  color: gold;
+}
