@@ -18,7 +18,8 @@ import Footer from "./footer";
                         <a href="/Search" className="btn btn-light rounded-pill py-md-3 px-md-5 mx-2">Find Doctor</a>
                         <a href="/Appointment" className="btn btn-outline-light rounded-pill py-md-3 px-md-5 mx-2">Appointment</a>
                         <a href="/FeedbackForm" className="btn btn-outline-light rounded-pill py-md-3 px-md-5 mx-2">Feedback</a>
-                       
+                        <a href="/QuestionForm" className="btn btn-outline-light rounded-pill py-md-3 px-md-5 mx-2">QuestionForm</a>
+                        
                        
                     </div>
                 </div>

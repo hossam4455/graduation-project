@@ -1,9 +1,10 @@
-import React, { Component ,useState } from "react";
+import React from "react";
+
 // import ViewPorfile from './viewprofile'
 const email = localStorage.getItem('email');
 
     const Navbar = () => { 
-        const [isLoggedIn, setIsLoggedIn] = useState(localStorage.token === '')
+        // const [isLoggedIn, setIsLoggedIn] = useState(localStorage.token === '')
         const handleLoginBtn = () => {
             
             return localStorage.length===0;
@@ -13,7 +14,7 @@ const email = localStorage.getItem('email');
         }
         const handleLogoutClick = () => {
             handleLogout();
-            setIsLoggedIn(handleLoginBtn());
+            // setIsLoggedIn(handleLoginBtn());
             setTimeout(() => {
                 window.location.reload();
                 }, 1000);
@@ -74,15 +75,7 @@ const email = localStorage.getItem('email');
                         <a href="/About" className="nav-item nav-link">About</a>
                         <a href="/Service" className="nav-item nav-link">Service</a>
                         <a href="/Price" className="nav-item nav-link">Pricing</a>
-                        <div className="nav-item dropdown">
-                            <a href="/" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                            <div className="dropdown-menu m-0">
-                            <a href="Team" className="dropdown-item">The Team</a>
-                                <a href="/Testimonial" className="dropdown-item">The Patients Reviews</a>
-                                <a href="/Appointment" className="dropdown-item">Appointment</a>
-                                <a href="/Search" className="dropdown-item">Search</a>
-                            </div>
-                        </div>
+                        
                         <a href="/Contact" className="nav-item nav-link">Contact</a>
                         {
                                     handleLoginBtn() ? ( 
@@ -98,20 +91,33 @@ const email = localStorage.getItem('email');
                             {
                                     handleLoginBtn() ? ( 
                                    
-                                        <div >
-                                            <a href="/Register"className="dropdown-item">Signup Doctor</a>
-                                            <a href="/RigisterPatient" className="dropdown-item">Signup Patient</a>   
-                                        </div>
+                                        <div>
+                                             <a href="/MyForm" className="nav-item nav-link">Signup Doctor</a>
+                                    </div>
+                                            
                                   
+                                            
                                         
                                     ) : (
-                                        <a href="/ViewPorfile" className="nav-item nav-link">
-                                        <i className="bi bi-person" style={{ fontSize: '35px',color:"black" }}></i>
-                                      </a>
-                                      
+                                    <a href="/ViewPorfile"><img src="img/user_456212.png" alt="" style={{width:"30px" ,height:"30px" ,marginTop:"20px", marginLeft:"30px",border:"0px"}} /></a>
                                     )
                           }
-                       
+                       {
+                                    handleLoginBtn() ? ( 
+                                   
+                                        <div>
+                                             <a href="/MyFormPatient" className="nav-item nav-link">Signup Patient</a>
+                                    </div>
+                                            
+                                  
+                                            
+                                        
+                                    ) : (
+                                        <a href="/ViewProfile">
+                                        
+                                      </a>
+                                    )
+                          }
 
 
                        

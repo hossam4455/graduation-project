@@ -95,15 +95,20 @@ const ViewProfile = (props) => {
             <li>{filteredUser?.email}</li>
           </ul>
           <div className="profile-buttons">
-            {token && (
+            {token && filteredUser?.role === "patient"&& (
               <Link to="/PatientAppointments" className="view-appointments-button top-right">
                 View Appointments
               </Link>
             )}
             {token && filteredUser?.role !== "patient" && (
+              <div>
               <Link to="/ApprovementAppointments" className="view-approvals-button bottom">
                 View Approvals
               </Link>
+              <Link to="/DoctorAppointments" className="view-appointments-button top-right">
+              View Calendar
+            </Link>
+            </div>
             )}
           </div>
         </div>

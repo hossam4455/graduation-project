@@ -3,19 +3,19 @@ import Navbar from './navbar';
 import Footer from './footer';
 import './css/css.css';
 
-const MyForm = () => {
+const MyFormPatient  = () => {
   const [formData, setFormData] = useState({
     username: '',
     email: '',
     password1: '',
     password2: '',
     doctor_name: '',
-    department: '',
-    cost: '',
+    department: 'dsas',
+    cost: '12',
     address: '',
 
     image: null,
-    role: '',
+    role: 'patient',
     bio:'',
   });
   const [response, setResponse] = useState(null);
@@ -72,7 +72,7 @@ const MyForm = () => {
     const handleButtonClick = (e) => {
       e.preventDefault();
       handleSubmit(e); // Call the first function and pass the event object
-      redirectToVerificationPage(); // Call the second function
+       // Call the second function
     };
   return (
     <div>
@@ -119,22 +119,8 @@ const MyForm = () => {
         onChange={handleChange}
         placeholder="Name"
       />
-      <label>Department:</label>
-      <input
-        type="text"
-        name="department"
-        value={formData.department}
-        onChange={handleChange}
-        placeholder="Department"
-      />
-      <label>Cost:</label>
-      <input
-        type="text"
-        name="cost"
-        value={formData.cost}
-        onChange={handleChange}
-        placeholder="Cost"
-      />
+  
+
       <label>Address:</label>
       <input
         type="text"
@@ -151,16 +137,7 @@ const MyForm = () => {
         onChange={handleChange}
         placeholder="bio"
       />
-              <label>Role:</label>
-        <select
-          name="role"
-          value={formData.role}
-          onChange={handleChange}
-        >
-          <option value="">Select Role</option>
-          <option value="doctor">Doctor</option>
-          <option value="patient">Patient</option>
-        </select>
+      
 
        
       <label>Uplode Image:</label>
@@ -173,6 +150,9 @@ const MyForm = () => {
       <button type="submit" onClick={handleButtonClick}>
   Add Doctor
 </button>
+<button type="submit" onClick={redirectToVerificationPage}>
+Verification
+</button> 
     </form>
     {response && (
         <div>
@@ -187,4 +167,4 @@ const MyForm = () => {
   );
 };
 
-export default MyForm;
+export default MyFormPatient ;

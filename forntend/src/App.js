@@ -15,7 +15,8 @@ import Testimonial from './components/testimonial';
 import Home2 from './components/home2';
 import Medicine from './components/medicine';
 import BuyNow from './components/buynow';
-
+import MyForm from './components/register';
+import MyFormPatient from './components/register_patient';
 import HomeLab from './components/Homelab';
 
 
@@ -35,6 +36,8 @@ import ViewPorfile from './components/viewprofile';
 import { Routes  } from 'react-router-dom';
 import VerificationPage from './components/verifyotp'
 import FeedbackForm from './components/feedback'
+import QuestionForm from './components/interact.js'
+import DoctorAppointments from './components/patient_appointments'
 class App extends Component{
   render(){
     return(
@@ -57,11 +60,12 @@ class App extends Component{
           <Route path='/Home2' Component={Home2}></Route>
         <Route path='/BuyNow' Component={BuyNow}></Route>
         <Route path='/Medicine' Component={Medicine}></Route>
-      
+        <Route path='/MyForm' Component={MyForm}></Route>
+        <Route path='/MyFormPatient' Component={MyFormPatient}></Route>
         <Route path='/HomeLab' Component={ HomeLab}></Route>
-      
+        <Route path='/DoctorAppointments' Component={ DoctorAppointments}></Route>
      
-
+        
       
         <Route path='/DoctorDetails' Component={DoctorDetails}></Route>
         <Route path='/ProfileDoctor' Component={ProfileDoctor}></Route>
@@ -75,7 +79,7 @@ class App extends Component{
         <Route path='/ViewPorfile' Component={ViewPorfile}></Route>
         <Route path='/VerificationPage' Component={VerificationPage}></Route>
         <Route path='/FeedbackForm' Component={FeedbackForm}></Route>
-        
+        <Route path='/QuestionForm' Component={QuestionForm}></Route>
         <Route path='/Login' Component={Login}></Route>
        
         <Route exact path="/" component={Team} />

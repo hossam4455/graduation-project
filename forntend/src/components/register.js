@@ -15,7 +15,7 @@ const MyForm = () => {
     address: '',
 
     image: null,
-    role: '',
+    role: 'doctor',
     bio:'',
   });
   const [response, setResponse] = useState(null);
@@ -72,7 +72,7 @@ const MyForm = () => {
     const handleButtonClick = (e) => {
       e.preventDefault();
       handleSubmit(e); // Call the first function and pass the event object
-      redirectToVerificationPage(); // Call the second function
+     
     };
   return (
     <div>
@@ -151,16 +151,7 @@ const MyForm = () => {
         onChange={handleChange}
         placeholder="bio"
       />
-              <label>Role:</label>
-        <select
-          name="role"
-          value={formData.role}
-          onChange={handleChange}
-        >
-          <option value="">Select Role</option>
-          <option value="doctor">Doctor</option>
-          <option value="patient">Patient</option>
-        </select>
+   
 
        
       <label>Uplode Image:</label>
@@ -172,7 +163,12 @@ const MyForm = () => {
       <br/>
       <button type="submit" onClick={handleButtonClick}>
   Add Doctor
-</button>
+</button> 
+<button type="submit" onClick={redirectToVerificationPage}>
+Verification
+</button> 
+
+    
     </form>
     {response && (
         <div>

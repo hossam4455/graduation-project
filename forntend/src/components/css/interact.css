@@ -1,0 +1,49 @@
+.question-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .question-list li {
+    margin-bottom: 10px;
+  }
+  
+  .question-list li .question {
+    font-weight: bold;
+  }
+  
+  .question-list li .answer {
+    margin-left: 20px;
+  }
+  
+  .question-list li .reply-container {
+    margin-top: 10px;
+  }
+  
+  .question-list li .reply-container input[type="text"] {
+    width: 200px;
+    margin-right: 10px;
+  }
+  
+  .question-list li .reply-container button {
+    padding: 5px 10px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  .patient-box {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add box shadow */
+  }
+  .timestamp {
+    font-size: 12px;
+    color: #888;
+  }
+  .question-item {
+    border: 1px solid gray;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  

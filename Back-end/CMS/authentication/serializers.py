@@ -71,3 +71,5 @@ class sigSerializer(serializers.Serializer):
     id = serializers.IntegerField()
     bio = serializers.CharField()
     email = serializers.CharField()
+    role =serializers.CharField()
+    

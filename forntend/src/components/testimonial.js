@@ -13,50 +13,50 @@ import Footer from "./footer";
 
 
     <!-- Testimonial Start --> */}
-    <div class="container-fluid py-5">
-        <div class="container">
-            <div class="text-center mx-auto mb-5" style={{maxWidth: "500px"}}>
-                <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5">Testimonial</h5>
-                <h1 class="display-4">Patients Say About Our Services</h1>
+    <div className="container-fluid py-5">
+        <div className="container">
+            <div className="text-center mx-auto mb-5" style={{maxWidth: "500px"}}>
+                <h5 className="d-inline-block text-primary text-uppercase border-bottom border-5">Testimonial</h5>
+                <h1 className="display-4">Patients Say About Our Services</h1>
             </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="owl-carousel testimonial-carousel">
-                        <div class="testimonial-item text-center">
-                            <div class="position-relative mb-5">
-                                <img class="img-fluid rounded-circle mx-auto" src="img/testimonial-1.jpg" alt=""/>
-                                <div class="position-absolute top-100 start-50 translate-middle d-flex align-items-center justify-content-center bg-white rounded-circle" style={{width: "60px", height: "60px"}}>
-                                    <i class="fa fa-quote-left fa-2x text-primary"></i>
+            <div className="row justify-content-center">
+                <div className="col-lg-8">
+                    <div className="owl-carousel testimonial-carousel">
+                        <div className="testimonial-item text-center">
+                            <div className="position-relative mb-5">
+                                <img className="img-fluid rounded-circle mx-auto" src="img/testimonial-1.jpg" alt=""/>
+                                <div className="position-absolute top-100 start-50 translate-middle d-flex align-items-center justify-content-center bg-white rounded-circle" style={{width: "60px", height: "60px"}}>
+                                    <i className="fa fa-quote-left fa-2x text-primary"></i>
                                 </div>
                             </div>
-                            <p class="fs-4 fw-normal"></p>
-                            <hr class="w-25 mx-auto"/>
+                            <p className="fs-4 fw-normal"></p>
+                            <hr className="w-25 mx-auto"/>
                             <h3>Patient Name</h3>
-                            <h6 class="fw-normal text-primary mb-3">Profession</h6>
+                            <h6 className="fw-normal text-primary mb-3">Profession</h6>
                         </div>
-                        <div class="testimonial-item text-center">
-                            <div class="position-relative mb-5">
-                                <img class="img-fluid rounded-circle mx-auto" src="img/testimonial-2.jpg" alt=""/>
-                                <div class="position-absolute top-100 start-50 translate-middle d-flex align-items-center justify-content-center bg-white rounded-circle" style={{width: "60px", height: "60px"}}>
-                                    <i class="fa fa-quote-left fa-2x text-primary"></i>
+                        <div className="testimonial-item text-center">
+                            <div className="position-relative mb-5">
+                                <img className="img-fluid rounded-circle mx-auto" src="img/testimonial-2.jpg" alt=""/>
+                                <div className="position-absolute top-100 start-50 translate-middle d-flex align-items-center justify-content-center bg-white rounded-circle" style={{width: "60px", height: "60px"}}>
+                                    <i className="fa fa-quote-left fa-2x text-primary"></i>
                                 </div>
                             </div>
-                            <p class="fs-4 fw-normal"></p>
-                            <hr class="w-25 mx-auto"/>
+                            <p className="fs-4 fw-normal"></p>
+                            <hr className="w-25 mx-auto"/>
                             <h3>Patient Name</h3>
-                            <h6 class="fw-normal text-primary mb-3">Profession</h6>
+                            <h6 className="fw-normal text-primary mb-3">Profession</h6>
                         </div>
-                        <div class="testimonial-item text-center">
-                            <div class="position-relative mb-5">
-                                <img class="img-fluid rounded-circle mx-auto" src="img/testimonial-3.jpg" alt=""/>
-                                <div class="position-absolute top-100 start-50 translate-middle d-flex align-items-center justify-content-center bg-white rounded-circle" style={{width: "60px", height: "60px"}}>
-                                    <i class="fa fa-quote-left fa-2x text-primary"></i>
+                        <div className="testimonial-item text-center">
+                            <div className="position-relative mb-5">
+                                <img className="img-fluid rounded-circle mx-auto" src="img/testimonial-3.jpg" alt=""/>
+                                <div className="position-absolute top-100 start-50 translate-middle d-flex align-items-center justify-content-center bg-white rounded-circle" style={{width: "60px", height: "60px"}}>
+                                    <i className="fa fa-quote-left fa-2x text-primary"></i>
                                 </div>
                             </div>
-                            <p class="fs-4 fw-normal"></p>
-                            <hr class="w-25 mx-auto"/>
+                            <p className="fs-4 fw-normal"></p>
+                            <hr className="w-25 mx-auto"/>
                             <h3>Patient Name</h3>
-                            <h6 class="fw-normal text-primary mb-3">Profession</h6>
+                            <h6 className="fw-normal text-primary mb-3">Profession</h6>
                         </div>
                     </div>
                 </div>

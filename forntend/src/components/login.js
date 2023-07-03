@@ -53,11 +53,12 @@ const MyForm = () => {
         const token = data.token;
         const id = data.user.id;
         const email = data.user.email;
-        console.log(token);
+        const role = data.user.role;
+        console.log(role);
         localStorage.setItem('token', token);
         localStorage.setItem('id', id);
         localStorage.setItem('email', email);
-
+        localStorage.setItem('role', role);
         setResult('User is signed in');
         navigate('/');
         setTimeout(() => {
@@ -70,16 +71,16 @@ const MyForm = () => {
       });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(formData);
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   console.log(formData);
 
-    // The remaining code for submitting the form and creating a doctor
+  //   // The remaining code for submitting the form and creating a doctor
 
-    // ...
+  //   // ...
 
-    setResult('Form submitted successfully');
-  };
+  //   setResult('Form submitted successfully');
+  // };
 
   return (
     <div>

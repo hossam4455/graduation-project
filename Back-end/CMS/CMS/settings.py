@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     "rest_framework.authtoken",
     "appointments",
     "subscriptions",
+     'channels',
    
 
    
@@ -112,7 +113,11 @@ TEMPLATES = [
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
 ]
-
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels.layers.InMemoryChannelLayer',
+    },
+}
 WSGI_APPLICATION = 'CMS.wsgi.application'
 AUTH_USER_MODEL='users.CustomUser'
 

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from "./navbar";
 import Footer from "./footer";
-import { Link } from 'react-router-dom';
-import ProfileDoctor from './doctor_profile';
+
+// import ProfileDoctor from './doctor_profile'; // Commented out unused import
 import { useNavigate } from 'react-router-dom'
 
 const Team = () => {

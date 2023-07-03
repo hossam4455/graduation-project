@@ -17,6 +17,11 @@ from rest_framework import status
 from .models import Feedback
 from .serializers import FeedbackSerializer
 from django.shortcuts import get_object_or_404
+from rest_framework import viewsets
+from .models import  Question
+from .serializers import QuestionSerializer
+from channels.layers import get_channel_layer
+from asgiref.sync import async_to_sync
 
 class UserApi(APIView):
     
@@ -84,3 +89,52 @@ class FeedbackDetailView(APIView):
         feedback = get_object_or_404(Feedback, pk=feedback_id)
         feedback.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+class QuestionViewSet(viewsets.ModelViewSet):
+    queryset = Question.objects.all()
+    serializer_class = QuestionSerializer
+
+    def perform_create(self, serializer):
+        question = serializer.save()
+        self.send_realtime_update('question_created', question)
+
+    def perform_update(self, serializer):
+        question = serializer.save()
+        self.send_realtime_update('question_updated', question)
+
+    def perform_destroy(self, instance):
+        question = instance
+        instance.delete()
+        self.send_realtime_update('question_deleted', question)
+
+    def send_realtime_update(self, action, question):
+        channel_layer = get_channel_layer()
+        async_to_sync(channel_layer.group_send)(
+            'questions_group',
+            {
+                'type': 'question_update',
+                'action': action,
+                'question': QuestionSerializer(question).data
+            }
+        )
+
+    def reply_to_question(self, request, pk=None):
+        try:
+            question = self.get_object()
+        except Question.DoesNotExist:
+            return Response({'error': 'Question not found'}, status=404)
+        
+        answer_text = request.data.get('answer_text')
+        if answer_text is None:
+            return Response({'error': 'Answer text is required'}, status=400)
+        
+        question.answer(answer_text)
+        serializer = self.get_serializer(question)
+        
+        return Response(serializer.data)
+    
+    def answer(self, answer_text):
+        self.instance.answer_text = answer_text
+        self.instance.is_answered = True
+        self.instance.save()
