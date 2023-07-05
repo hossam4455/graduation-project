@@ -138,3 +138,29 @@ class QuestionViewSet(viewsets.ModelViewSet):
         self.instance.answer_text = answer_text
         self.instance.is_answered = True
         self.instance.save()
+from .models import Buy,Test
+from rest_framework import generics
+from .serializers import BuySerializer,TestSerializer
+
+class BuyDetailAPIView(APIView):
+    def get(self, request):
+        feedbacks = Buy.objects.all()
+        serializer = BuySerializer(feedbacks, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    def post(self, request):
+        serializer = BuySerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+class TestDetailAPIView(APIView):
+    def get(self, request):
+        feedbacks = Test.objects.all()
+        serializer = TestSerializer(feedbacks, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    def post(self, request):
+        serializer = TestSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

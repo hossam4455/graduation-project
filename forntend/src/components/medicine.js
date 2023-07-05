@@ -65,7 +65,7 @@ const YourComponent = () => {
                 <div className="item" key={product.id}>
                   <div className="box">
                     <div className="btn_container">
-                      <a href="/BuyNow">Buy Now</a>
+                      <a href="/BuyNow">Make a prescription</a>
                     </div>
                     <div className="img-box">
                       <img src={product.imgSrc} alt="" />
@@ -86,6 +86,7 @@ const YourComponent = () => {
           </div>
         </div>
       </section>
+    
     </div>
   );
 };

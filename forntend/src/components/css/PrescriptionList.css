@@ -1,0 +1,52 @@
+.prescription-list {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f8f8f8;
+    border-radius: 4px;
+  }
+  
+  .prescription-list__heading {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .prescription-list__list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .prescription-list__item {
+    margin-bottom: 10px;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .prescription-list__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .prescription-list__text {
+    font-size: 16px;
+  }
+  
+  .prescription-list__doctor {
+    font-size: 14px;
+    color: #888;
+  }
+  .prescription-list__textarea {
+    font-size: 16px;
+    width:80%;
+    height: 100px;
+    resize: vertical;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  

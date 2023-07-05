@@ -76,3 +76,32 @@ class Question(models.Model):
         self.answer_text = answer_text
         self.is_answered = True
         self.save()
+
+class Buy(models.Model):
+    prescription = models.CharField(max_length=100)
+    doctor = models.ForeignKey(
+        CustomUser,
+        on_delete=models.CASCADE,
+        related_name='prescription_doctor',
+        limit_choices_to={'role': 'doctor'}
+    )
+    patient = models.ForeignKey(
+        CustomUser,
+        on_delete=models.CASCADE,
+        related_name='patient_doctor',
+        limit_choices_to={'role': 'patient'}
+    )
+class Test(models.Model):
+    prescription = models.CharField(max_length=100)
+    doctor = models.ForeignKey(
+        CustomUser,
+        on_delete=models.CASCADE,
+        related_name='test_doctor',
+        limit_choices_to={'role': 'doctor'}
+    )
+    patient = models.ForeignKey(
+        CustomUser,
+        on_delete=models.CASCADE,
+        related_name='test_patient',
+        limit_choices_to={'role': 'patient'}
+    )

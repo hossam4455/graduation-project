@@ -148,23 +148,39 @@ const MyFormPatient  = () => {
       />
       <br/>
       <button type="submit" onClick={handleButtonClick}>
-  Add Doctor
+  Add Patient
 </button>
 <button type="submit" onClick={redirectToVerificationPage}>
 Verification
 </button> 
     </form>
     {response && (
-        <div>
-          <h3>Response from Backend:</h3>
-          <p>Username: {response.username}</p>
-          <p>Email: {response.email}</p>
-          {/* Access other properties as needed */}
-        </div>
-      )}
+          <div style={styles.responseContainer}>
+            <h3 style={styles.responseTitle}>Response :</h3>
+            <p>Message: {response.message}</p>
+            <p>Username: {response.data.username}</p>
+            <p>Email: {response.data.email}</p>
+            <p>image: {response.data.image}</p>
+            <p>address: {response.data.address}</p>
+            {/* Access other properties as needed */}
+          </div>
+        )}
     <Footer/>
     </div>
   );
 };
-
+const styles = {
+  responseContainer: {
+    marginTop: '20px',
+    padding: '10px',
+    backgroundColor: '#f2f2f2',
+    border: '1px solid #ccc',
+    borderRadius: '4px',
+  },
+  responseTitle: {
+    fontSize: '18px',
+    fontWeight: 'bold',
+    marginBottom: '10px',
+  },
+};
 export default MyFormPatient ;

@@ -1,106 +1,76 @@
-import React, { Component } from "react";
-import "../components/assets/css/style.css";
-import NavLab from "./navlab";
+import React, { useState } from 'react';
+import axios from 'axios';
+import PharmNav2 from './pharmNav2';
+import Footer from './footer';
 
-class LabForm extends Component {
-  handleSubmit = (event) => {
-    event.preventDefault(); // Prevents the default form submission behavior
+const Card = () => {
+  const [prescription, setPrescription] = useState('');
+  const [patient, setPatient] = useState('');
+  const [isError, setIsError] = useState(false);
+  const [response, setResponse] = useState(null);
 
-    // Access form data using the event.target object
-    const name = event.target.name.value;
-    const email = event.target.email.value;
-    const mobileNumber = event.target.mobileNumber.value;
-    const message = event.target.message.value;
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-    // You can now use the captured form data for further processing (e.g., sending it to an API)
+    try {
+      // Retrieve doctor ID from localStorage
+      const doctorId = localStorage.getItem('id');
 
-    // Example: Log the form data to the console
-    console.log("Name:", name);
-    console.log("Email:", email);
-    console.log("Mobile Number:", mobileNumber);
-    console.log("Message:", message);
+      const response = await axios.post('http://127.0.0.1:8000/users/test/', {
+        prescription,
+        doctor: doctorId,
+        patient,
+      });
 
-    // Reset the form inputs after submission if needed
-    event.target.reset();
+      console.log(response.data); // Optional: Handle the response
+
+      // Store the response data
+      setResponse(response.data);
+
+      // Reset the form fields
+      setPrescription('');
+      setPatient('');
+    } catch (error) {
+      console.error(error);
+      setIsError(true);
+    }
   };
 
-  render() {
-    return (
-      <div>
-        <NavLab />
-        <section id="contact" className="contact-us-single">
-          <div className="row no-margin">
-            <div className="col-sm-6 cop-ck">
-              <form onSubmit={this.handleSubmit}>
-                <div className="row cf-ro">
-                  <div className="col-sm-3">
-                    <label>Enter Name :</label>
-                  </div>
-                  <div className="col-sm-8">
-                    <input
-                      type="text"
-                      placeholder="Enter Name"
-                      name="name"
-                      className="form-control input-sm"
-                    />
-                  </div>
-                </div>
-                <div className="row cf-ro">
-                  <div className="col-sm-3">
-                    <label>Email Address :</label>
-                  </div>
-                  <div className="col-sm-8">
-                    <input
-                      type="text"
-                      name="email"
-                      placeholder="Enter Email Address"
-                      className="form-control input-sm"
-                    />
-                  </div>
-                </div>
-                <div className="row cf-ro">
-                  <div className="col-sm-3">
-                    <label>Mobile Number:</label>
-                  </div>
-                  <div className="col-sm-8">
-                    <input
-                      type="text"
-                      name="mobileNumber"
-                      placeholder="Enter Mobile Number"
-                      className="form-control input-sm"
-                    />
-                  </div>
-                </div>
-                <div className="row cf-ro">
-                  <div className="col-sm-3">
-                    <label>Enter Message:</label>
-                  </div>
-                  <div className="col-sm-8">
-                    <textarea
-                      rows="5"
-                      name="message"
-                      placeholder="Enter Your Message"
-                      className="form-control input-sm"
-                    ></textarea>
-                  </div>
-                </div>
-                <div className="row cf-ro">
-                  <div className="col-sm-3">
-                    <label></label>
-                  </div>
-                  <div className="col-sm-8">
-                    <button className="btn btn-info btn-sm" type="submit">
-                      Send Message
-                    </button>
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-        </section>
+  return (
+    <div>
+      <PharmNav2 />
+      <h1>Buy Form</h1>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label htmlFor="prescription">Write Test:</label>
+          <textarea
+            id="prescription"
+            value={prescription}
+            onChange={(e) => setPrescription(e.target.value)}
+          />
+        </div>
+        <div>
+          <label htmlFor="patient">Patient:</label>
+          <input
+            type="text"
+            id="patient"
+            value={patient}
+            onChange={(e) => setPatient(e.target.value)}
+          />
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+      <div style={{ backgroundColor: '#f5f5f5', padding: '10px' }}>
+        <h3>Response:</h3>
+        {isError ? (
+          <pre>Failure</pre>
+        ) : (
+          response && <pre>successful</pre>
+        )}
       </div>
-    );
-  }
-}
+      <Footer />
+    </div>
+  );
+};
 
-export default LabForm;
+export default Card;

@@ -12,6 +12,7 @@ const CreateAppointment = () => {
   });
 
   const [doctors, setDoctors] = useState([]);
+  const [response, setResponse] = useState(null);
   const [error, setError] = useState('');
 
   useEffect(() => {
@@ -34,20 +35,12 @@ const CreateAppointment = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch('http://127.0.0.1:8000/appointments/approvement/', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData),
-    })
-      .then(response => response.json())
-      .then(data => {
-        // Handle the response data as needed
-        console.log(data);
+    axios.post('http://127.0.0.1:8000/appointments/approvement/', formData)
+      .then(response => {
+        setResponse(response.data);
       })
       .catch(error => {
-        // Handle the error
+        setError('Failed to create appointment.');
         console.error(error);
       });
   };
@@ -67,22 +60,41 @@ const CreateAppointment = () => {
           ))}
         </select>
 
-        {/* <label htmlFor="patient">Patient:</label>
-        <select id="patient" name="patient" onChange={handleInputChange}>
-          <option value="">Select a patient</option>
-          {patients.map(patient => (
-            <option key={patient.id} value={patient.id}>{patient.doctor_name}</option>
-          ))}
-        </select> */}
-
         <label htmlFor="appointment_datetime">Appointment Date and Time:</label>
         <input type="datetime-local" id="appointment_datetime" name="appointment_datetime" onChange={handleInputChange} />
 
         <button type="submit">Create</button>
       </form>
+
+      {response && (
+        <div style={styles.responseContainer}>
+          <h3>Response:</h3>
+          <p style={styles.responseMessage}>Message: Successful</p>
+          <p style={styles.responseMessage}>appointment_datetime: {response.appointment_datetime}</p>
+          {/* Access other properties from the response as needed */}
+        </div>
+      )}
+
+      {error && <p style={styles.errorMessage}>Error: {error}</p>}
+
       <Footer/>
     </div>
   );
+};
+
+const styles = {
+  responseContainer: {
+    margin: '10px 0',
+  },
+  responseMessage: {
+    padding: '10px',
+    backgroundColor: '#f2f2f2',
+    border: '1px solid #ccc',
+    borderRadius: '4px',
+  },
+  errorMessage: {
+    color: 'red',
+  },
 };
 
 export default CreateAppointment;

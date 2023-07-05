@@ -4,7 +4,7 @@ from rest_framework import serializers
 
 from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
-from users.models import CustomUser ,Question
+from users.models import CustomUser ,Question,Buy,Test
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -24,3 +24,12 @@ class QuestionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Question
         fields = '__all__'
+class BuySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Buy
+        fields = ['id', 'prescription', 'doctor', 'patient']
+
+class TestSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Test
+        fields = ['id', 'prescription', 'doctor', 'patient']

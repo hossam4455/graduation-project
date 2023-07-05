@@ -5,6 +5,7 @@ from . import views
 from rest_framework import routers
 from .views import  QuestionViewSet
 from django.urls import path, include
+from .views import BuyDetailAPIView,TestDetailAPIView
 router = routers.DefaultRouter()
 app_name = 'users'
 router.register(r'questions', QuestionViewSet)
@@ -16,8 +17,8 @@ urlpatterns = [
 
     path('api/', include(router.urls)),
       path('api/questions/<int:pk>/reply/', views.QuestionViewSet.as_view({'post': 'reply_to_question'}), name='reply_to_question'),
-    
-
+      path('buy/', BuyDetailAPIView.as_view(), name='buy-list'),
+ path('test/', TestDetailAPIView.as_view(), name='buy-list'),
     
 
 

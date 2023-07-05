@@ -33,7 +33,7 @@ class PharmNav extends Component{
                   <a className="nav-link" href="/Medicine"> Medicine </a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="/BuyNow">Buy Now</a>
+                  <a className="nav-link" href="/BuyNow">Make a prescription</a>
                 </li>
                 <li className="nav-item">
                   <a className="nav-link" href="/">CMS</a>

@@ -33,7 +33,7 @@ class Home2 extends Component{
                   <a className="nav-link" href="/Medicine"> Medicine </a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="/BuyNow">Buy Now</a>
+                  <a className="nav-link" href="/BuyNow">Make a prescription</a>
                 </li>
                 <li className="nav-item">
                   <a className="nav-link" href="/">CMS</a>
@@ -79,7 +79,7 @@ class Home2 extends Component{
                     </p>
                     <div>
                       <a href="/BuyNow">
-                        Buy Now
+                        Make a prescription
                       </a>
                     </div>
                   </div>
@@ -111,7 +111,7 @@ class Home2 extends Component{
                     </p>
                     <div>
                       <a href="/BuyNow">
-                        Buy Now
+                      Make a prescription
                       </a>
                     </div>
                   </div>
@@ -143,7 +143,7 @@ class Home2 extends Component{
                     </p>
                     <div>
                       <a href="/BuyNow">
-                        Buy Now
+                      Make a prescription
                       </a>
                     </div>
                   </div>

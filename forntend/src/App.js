@@ -37,7 +37,10 @@ import { Routes  } from 'react-router-dom';
 import VerificationPage from './components/verifyotp'
 import FeedbackForm from './components/feedback'
 import QuestionForm from './components/interact.js'
+import Prescription from './components/disply_prescription.js'
 import DoctorAppointments from './components/patient_appointments'
+import TestList from './components/view_tests'
+
 class App extends Component{
   render(){
     return(
@@ -58,36 +61,38 @@ class App extends Component{
           <Route path='/Team' Component={Team}/>
           <Route path='/Testimonial' Component={Testimonial}/>
           <Route path='/Home2' Component={Home2}></Route>
-        <Route path='/BuyNow' Component={BuyNow}></Route>
-        <Route path='/Medicine' Component={Medicine}></Route>
-        <Route path='/MyForm' Component={MyForm}></Route>
-        <Route path='/MyFormPatient' Component={MyFormPatient}></Route>
-        <Route path='/HomeLab' Component={ HomeLab}></Route>
-        <Route path='/DoctorAppointments' Component={ DoctorAppointments}></Route>
-     
-        
-      
-        <Route path='/DoctorDetails' Component={DoctorDetails}></Route>
-        <Route path='/ProfileDoctor' Component={ProfileDoctor}></Route>
-        <Route path='/Labnav' Component={Labnav}></Route>
-        <Route path='/Labform' Component={Labform}></Route>
-        <Route path='/PharmNav' Component={PharmNav}></Route>
-        <Route path='/RigisterPatient' Component={RigisterPatient}></Route>
-        <Route path='/CreateAppointment' Component={CreateAppointment}></Route>
-        <Route path='/PatientAppointments' Component={PatientAppointments}></Route>
-        <Route path='/ApprovementAppointments' Component={ApprovementAppointments}></Route>
-        <Route path='/ViewPorfile' Component={ViewPorfile}></Route>
-        <Route path='/VerificationPage' Component={VerificationPage}></Route>
-        <Route path='/FeedbackForm' Component={FeedbackForm}></Route>
-        <Route path='/QuestionForm' Component={QuestionForm}></Route>
-        <Route path='/Login' Component={Login}></Route>
-       
-        <Route exact path="/" component={Team} />
-        <Route path="/ProfileDoctor/:doctorName" component={ProfileDoctor} />
-  
+          <Route path='/BuyNow' Component={BuyNow}></Route>
+          <Route path='/Medicine' Component={Medicine}></Route>
+          <Route path='/MyForm' Component={MyForm}></Route>
+          <Route path='/MyFormPatient' Component={MyFormPatient}></Route>
+          <Route path='/HomeLab' Component={ HomeLab}></Route>
+          <Route path='/DoctorAppointments' Component={ DoctorAppointments}></Route>
+          <Route path='/TestList' Component={ TestList}></Route>
+          
 
+          <Route path='/DoctorDetails' Component={DoctorDetails}></Route>
+          <Route path='/ProfileDoctor' Component={ProfileDoctor}></Route>
+          <Route path='/Labnav' Component={Labnav}></Route>
+          <Route path='/Labform' Component={Labform}></Route>
+          <Route path='/PharmNav' Component={PharmNav}></Route>
+          <Route path='/RigisterPatient' Component={RigisterPatient}></Route>
+          <Route path='/CreateAppointment' Component={CreateAppointment}></Route>
+          <Route path='/PatientAppointments' Component={PatientAppointments}></Route>
+          <Route path='/ApprovementAppointments' Component={ApprovementAppointments}></Route>
+          <Route path='/ViewPorfile' Component={ViewPorfile}></Route>
+          <Route path='/VerificationPage' Component={VerificationPage}></Route>
+          <Route path='/FeedbackForm' Component={FeedbackForm}></Route>
+          <Route path='/QuestionForm' Component={QuestionForm}></Route>
+          <Route path='/Prescription' Component={Prescription}></Route>
+          
+          <Route path='/Login' Component={Login}></Route>
         
-        
+          <Route exact path="/" component={Team} />
+          <Route path="/ProfileDoctor/:doctorName" component={ProfileDoctor} />
+    
+
+          
+          
         </Routes>
       </Router>
       </div>
